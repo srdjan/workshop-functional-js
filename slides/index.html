@@ -33,38 +33,46 @@
     <section class="slide" id="textarea-code">
       <h2> Functional Javascript Design Patterns - JavaScript Overview</h2>
        <ul>
-        <li><h4>Primitive values and objects</h4></li>
-        <li><h4>Functions</h4></li>
-        <li><h4>Variable scoping and closures</h4></li>
-        <li><h4>Prototypes</h4></li>
-        <li><h4>Exception handling</h4></li>
+        <li><h3>Objects</h3></li>
+        <li><h3>Functions</h3></li>
+        <li><h3>Closures</h3></li>
+        <li><h3>Prototypes</h3></li>
       </ul>
     </section>
 
     <section class="slide" id="textarea-code">
       <h2> Functional Javascript Design Patterns - JavaScript Overview</h2>
-      <h4>In JavaScript, almost everything is an object. Even primitive types, except null and undefined, are treated as objects.  
-      <h3> Primitive values</h3>
-      <ul>
-        <li><h4>Number</h4></li>
-        <li><h4>String</h4></li>
-        <li><h4>Boolean</h4></li>
-        <li><h4>Null</h4></li>
-        <li><h4>Undefined</h4></li>
-      </ul>
-      <h3> Objects</h3>
-      <ul>
-        <li><h4>Date</h4></li>
-        <li><h4>Math</h4></li>
-        <li><h4>Array</h4></li>
-        <li><h4>Function</h4></li>
-      </ul>
+      <h3>Objects</h3><h4>In JavaScript, almost everything is an object.</br>
+       Even primitive types, except null and undefined, are treated as objects.</h4></br>
+      <table style="width: 400px;">
+         <tr>
+           <td>
+            <h4>Primitive values</h4>
+            <ul>
+              <li><h4>Number</h4></li>
+              <li><h4>String</h4></li>
+              <li><h4>Boolean</h4></li>
+              <li><h4>Null</h4></li>
+              <li><h4>Undefined</h4></li>
+            </ul>
+           </td>
+           <td>
+            <h4>Objects</h4>
+            <ul>
+              <li><h4>Date</h4></li>
+              <li><h4>Math</h4></li>
+              <li><h4>Array</h4></li>
+              <li><h4>Function</h4></li>
+            </ul>
+           </td>
+         </tr>
+       </table> 
     </section>
 
     <section class="slide" id="textarea-code">
       <h2> Functional Javascript Design Patterns - JavaScript Overview</h2>
-      <h3>Function is a set of statements that performs a task or calculates a value.
-      A function definition (declaration) consists of the function keyword, followed by:</h3>
+      <h3>Functions</h3><h4>is a set of statements that performs a task or calculates a value.
+      A function definition (declaration) consists of the function keyword, followed by:</h4>
       <ul>
         <li><h4>The name of the function</h4></li>
         <li><h4>List of arguments to the function, enclosed in parentheses and separated by commas</h4></li>
@@ -83,12 +91,74 @@ console.log(result);
 
     <section class="slide" id="textarea-code">
       <h2> Functional Javascript Design Patterns - JavaScript Overview</h2>
-      <ul>
-        <li><h4>Date</h4></li>
-        <li><h4>Math</h4></li>
-        <li><h4>Array</h4></li>
-        <li><h4>Function</h4></li>
-      </ul>
+      <h3>Closures</h3><h4>JavaScript allows for the nesting of functions and grants the inner function full access to all the variables and functions defined inside the outer function. However, the outer function does not have access to the variables and functions defined inside the inner function.
+      </h4></br>
+      <div>
+        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var pet = function(name) {          // The outer function defines a variable called "name"
+      var getName = function() {
+        return name;                // The inner function has access to the "name" variable of the outer function
+      }
+
+      return getName;               // Return the inner function, thereby exposing it to outer scopes
+    },
+    myPet = pet("Vivie");
+    
+myPet();                            // Returns "Vivie"
+        </textarea>
+      </div>
+    </section>
+
+    <section class="slide" id="textarea-code">
+      <h2> Functional Javascript Design Patterns - JavaScript Overview</h2>
+      <h3>Prototypes</h3><h4>Javascript is dynamic, all runtime, and it has no classes at all. It's all just instances (objects). All objects in JavaScript are descended from Object; all objects inherit methods and properties from Object.prototype, although they may be overridden (except an Object with a null prototype, i.e. Object.create(null)). For example, other constructors' prototypes override the constructor property and provide their own toString() methods. Changes to the Object prototype object are propagated to all objects unless the properties and methods subject to those changes are overridden further along the prototype chain
+      That prototype object has a prototype of its own, and so on until an object is reached with null as its prototype. null, by definition, has no prototype, and acts as the final link in this prototype chain.
+      </h4></br>
+      <div>
+        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var Person = function() {
+    this.canTalk = true;
+    this.greet = function() {
+        if (this.canTalk) {
+            console.log("Hi, I'm " + this.name);
+        }
+    };
+};
+
+var Employee = function(name, title) {
+    this.name = name;
+    this.title = title;
+    this.greet = function() {
+        if (this.canTalk) {
+            console.log("Hi, I'm " + this.name + ", the " + this.title);
+        }
+    };
+};
+Employee.prototype = new Person();
+
+var Customer = function(name) {
+    this.name = name;
+};
+Customer.prototype = new Person();
+
+var Mime = function(name) {
+    this.name = name;
+    this.canTalk = false;
+};
+Mime.prototype = new Person();
+
+var bob = new Employee('Bob','Builder');
+var joe = new Customer('Joe');
+var rg = new Employee('Red Green','Handyman');
+var mike = new Customer('Mike');
+var mime = new Mime('Mime');
+bob.greet();
+joe.greet();
+rg.greet();
+mike.greet();
+mime.greet();
+        </textarea>
+      </div>
     </section>
 
     <section class="slide" id="textarea-code">
