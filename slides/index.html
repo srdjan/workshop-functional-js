@@ -32,7 +32,9 @@
 
     <section class="slide" id="textarea-code">
       <h2>JavaScript Overview</h2>
+      </br></br>
        <ul>
+        <li><h3>Type System</h3></li>
         <li><h3>Objects</h3></li>
         <li><h3>Functions</h3></li>
         <li><h3>Closures</h3></li>
@@ -41,38 +43,39 @@
     </section>
 
     <section class="slide" id="textarea-code">
+      <h2>JavaScript Overview - Type System</h2>
+      <h3>Javascrip has dynamic and loosly typed type system.</br>
+       In JavaScript, almost everything is an object.</br>
+       Even primitive types, except null and undefined, are treated as objects.
+      </h3></br>
+      <ul>
+        <li><h4>Number</h4></li>
+        <li><h4>String</h4></li>
+        <li><h4>Boolean</h4></li>
+        <li><h4>Object</h4></li>
+        <ul>
+          <li><h4>Function</h4></li>
+          <li><h4>Array</h4></li>
+          <li><h4>Date</h4></li>
+          <li><h4>Math</h4></li>
+          <li><h4>RegExp</h4></li>
+        </ul>
+        <li><h4>Null</h4></li>
+        <li><h4>Undefined</h4></li>
+      </ul>
+    </section>
+
+    <section class="slide" id="textarea-code">
       <h2>JavaScript Overview - Objects</h2>
-      <h4>In JavaScript, almost everything is an object.</br>
-       Even primitive types, except null and undefined, are treated as objects.</h4></br>
-      <table style="width: 400px;">
-         <tr>
-           <td>
-            <h4>Primitive values</h4>
-            <ul>
-              <li><h4>Number</h4></li>
-              <li><h4>String</h4></li>
-              <li><h4>Boolean</h4></li>
-              <li><h4>Null</h4></li>
-              <li><h4>Undefined</h4></li>
-            </ul>
-           </td>
-           <td>
-            <h4>Objects</h4>
-            <ul>
-              <li><h4>Date</h4></li>
-              <li><h4>Math</h4></li>
-              <li><h4>Array</h4></li>
-              <li><h4>Function</h4></li>
-            </ul>
-           </td>
-         </tr>
-       </table> 
+      <h3>JavaScript objects can be thought of as simple collections of name-value pairs, similar to dictionaries. The "name" part is a JavaScript string, while the value can be any JavaScript value — including more objects. This allows you to build data structures of arbitrary complexity.
+      </h3>
+      </br>
+      <img src="./img/prototype-chain.png" alt="http://yehudakatz.com/2011/08/12/understanding-prototypes-in-javascript/">
     </section>
 
     <section class="slide" id="textarea-code">
       <h2>JavaScript Overview - Functions</h2>
-      <h4>is a set of statements that performs a task or calculates a value.
-      A function definition (declaration) consists of the function keyword, followed by:</h4>
+      <h3>In JavaScript every function is actually a Function object and is used to perform a task or calculates a value. A function definition (declaration) consists of the function keyword, followed by:</h3>
       <ul>
         <li><h4>The name of the function</h4></li>
         <li><h4>List of arguments to the function, enclosed in parentheses and separated by commas</h4></li>
@@ -91,8 +94,9 @@ console.log(result);
 
     <section class="slide" id="textarea-code">
       <h2>JavaScript Overview - Closures</h2>
-      <h4>JavaScript allows for the nesting of functions and grants the inner function full access to all the variables and functions defined inside the outer function. However, the outer function does not have access to the variables and functions defined inside the inner function.
-      </h4></br>
+      <h3>JavaScript allows for the nesting of functions and grants the inner function full access to all the variables and functions defined inside the outer function. However, the outer function does not have access to the variables and functions defined inside the inner function.
+      </h3>
+      </br>
       <div>
         <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var pet = function(name) {          // The outer function defines a variable called "name"
@@ -111,9 +115,20 @@ myPet();                            // Returns "Vivie"
 
     <section class="slide" id="textarea-code">
       <h2>JavaScript Overview - Prototypes</h2>
-      <h4>Javascript is dynamic, all runtime, and it has no classes at all. It's all just instances (objects). All objects in JavaScript are descended from Object; all objects inherit methods and properties from Object.prototype, although they may be overridden (except an Object with a null prototype, i.e. Object.create(null)). For example, other constructors' prototypes override the constructor property and provide their own toString() methods. Changes to the Object prototype object are propagated to all objects unless the properties and methods subject to those changes are overridden further along the prototype chain
-      That prototype object has a prototype of its own, and so on until an object is reached with null as its prototype. null, by definition, has no prototype, and acts as the final link in this prototype chain.
-      </h4></br>
+      <h3>Javascript is dynamic and it has no classes at all, it's all just instances (objects).</br>
+      All objects in JavaScript are descended from Object nad they inherit methods and properties from Object.prototype, although they may be overridden.
+      </h3>
+      </br></br>
+      <ul>
+        <li><h4>JavaScript does not feature a classical inheritance model; it uses a prototypal one.</h4></li>
+        <li><h4>Inheritance in JavaScript uses prototype chains</h4></li>
+        <li><h4>null, by definition, has no prototype, and acts as the final link in this prototype chain</h4></li>
+        <li><h4>hasOwnProperty is the only thing in JavaScript which deals with properties and does not traverse the prototype chain</h4></li>
+      </ul>
+    </section>
+
+    <section class="slide" id="textarea-code">
+      <h2>JavaScript Overview - Prototypes</h2>
       <div>
         <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var Person = function() {
@@ -136,11 +151,6 @@ var Employee = function(name, title) {
 };
 Employee.prototype = new Person();
 
-var Customer = function(name) {
-    this.name = name;
-};
-Customer.prototype = new Person();
-
 var Mime = function(name) {
     this.name = name;
     this.canTalk = false;
@@ -148,41 +158,68 @@ var Mime = function(name) {
 Mime.prototype = new Person();
 
 var bob = new Employee('Bob','Builder');
-var joe = new Customer('Joe');
-var rg = new Employee('Red Green','Handyman');
-var mike = new Customer('Mike');
-var mime = new Mime('Mime');
 bob.greet();
-joe.greet();
-rg.greet();
-mike.greet();
+var mime = new Mime('Mime');
 mime.greet();
         </textarea>
       </div>
     </section>
 
     <section class="slide" id="textarea-code">
-      <h2> Functional Javascript Design Patterns </h2>
-      <h3> Functional Programming Overview</h3>
+      <h2>Functional Programming Overview</h2>
+      </br></br>
+       <ul>
+        <li><h3>What is functional programming?</h3></li>
+        <li><h3>Why Functional?</h3></li>
+        <li><h3>Pure function</h3></li>
+        <li><h3>Closures</h3></li>
+        <li><h3>Prototypes</h3></li>
+      </ul>
+    </section>
+
+    <section class="slide" id="textarea-code">
+      <h2> What is functional programming</h2>
+      <ul>
+        <li>
+        <h3>No Side Effects</h3>
+          <h4>A function should do one thing. Any function that does something other than its single intended purpose is said to have side effects. In pure functional programming languages side effects are not allowed, but in JavaScript there are no such guarantees.</h4>
+        </li>
+        <li>
+        <h3>Referential Transparency</h3>
+          <h4>Ability of code to be evaluated in a predictable manner, not influenced by external state. That same code should always output the same value for a given set of arguments, and only changing those arguments can a output value be different.</h4>
+        </li>
+        <li>
+        <h3>Immutability</h3> 
+          <h4>Immutability, or the inability for variables to changes their values once created. In other words, all things created should strive to be constants. In JavaScript there is no internal mechanism to enforce this as there is in pure functional programming languages like Haskell and friends. JavaScript is dynamic and without strict typing, and so keeping variables immutable in a codebase is merely a convention.</h4>
+        </li>
+        <li>
+        <h3>Higher Order Functions</h3> 
+          <h4>A higher-order function is a function that can accept functions as arguments, and/or can return a function.</h4>
+        </li>
+      </ul>
+    </section>
+
+    <section class="slide" id="textarea-code">
+      <h2>Why Functional?</h2>
       <p>
         "Functional programming isn't the goal. The goal is to simplify the complicated."
       </p>
-      <ul>
-        <li><h4>Less code</h4></li>
+      <ul>Motiviation:
+        <li><h4>Write less code</h4></li>
         <li><h4>Fewer errors</h4></li>
         <li><h4>Easy concurrency</h4></li>
         <li><h4>Testability</h4></li>
-      </ul></br>
+      </ul></br></br>
       <h3>but...</h3>
     </section>
 
     <section class="slide" id="textarea-code">
-      <h2> Functional Javascript Design Patterns </h2>
+      <h2>Don't be too busy... It i sworth it :)</h2>
       <img src="./img/no-thanks-were-too-busy.jpg" />
     </section>
 
 		<section class="slide" id="textarea-code">
-			<h2> What is a pure function? </h2>
+			<h2>Pure function</h2>
       <img src="./img/Function-as-a-box.jpg" />
 			<div>
         <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
@@ -197,23 +234,6 @@ console.log(f("Joe!"));
         <li><h4>No side effects</h4></li>
       </ul>
 		</section>
-
-    <section class="slide" id="textarea-code">
-      <h2> Functional Javascript Design Patterns </h2>
-      <h3> What is functional programming</h3>
-      <ul>
-        <li><h4>No Side Effects</h4>
-        A function should do one thing. Any function that does something other than its single intended purpose is said to have side effects. In pure functional programming languages side effects are not allowed, but this is JavaScript and everything is fair game and must be enforced with conventions</p>
-        </li>
-        <li><h4>Referential Transparency</h4>
-        Referential transparency is the ability of code to be evaluated in a predictable manner, not influenced by external state. Code that has achieved referential transparency is only affected by arguments that are passed to it, and changing state in the application has no effect. That same code should always output the same value for a given set of arguments, and only changing those arguments can a value be different. </li>
-        <li><h4>Immutability</h4> 
-        Immutability, or the inability for variables to changes their values once created. In other words, all things created should strive to be constants. In JavaScript there is no internal mechanism to enforce this as there is in pure functional programming languages like Haskell and friends. JavaScript is dynamic and without strict typing, and so keeping variables immutable in a codebase is merely a convention</li>
-        <li><h4>Higher Order Functions</h4> 
-        A higher-order function is a function that can accept functions as arguments, and/or can return a function.</li>
-      </ul>
-    </section>
-
 
 
 
@@ -371,8 +391,38 @@ console.log($('script').size());</textarea>
 			<a href="http://twitter.com/ireneros">@ireneros</a>
 		</section>
 
-		<a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
-		<a href="#" class="deck-next-link" title="Next">&#8594;</a>
+    <section class="slide" id="textarea-code">
+      <h2>JavaScript Overview - Type System</h2>
+      <h4>In JavaScript, almost everything is an object.</br>
+       Even primitive types, except null and undefined, are treated as objects.</h4></br>
+      <table style="width: 400px;">
+         <tr>
+           <td>
+            <h4>Primitive values</h4>
+            <ul>
+              <li><h4>Number</h4></li>
+              <li><h4>String</h4></li>
+              <li><h4>Boolean</h4></li>
+              <li><h4>Null</h4></li>
+              <li><h4>Undefined</h4></li>
+            </ul>
+           </td>
+           <td>
+            <h4>Objects</h4>
+            <ul>
+              <li><h4>Date</h4></li>
+              <li><h4>Math</h4></li>
+              <li><h4>Array</h4></li>
+              <li><h4>Function</h4></li>
+            </ul>
+           </td>
+         </tr>
+       </table> 
+    </section>
+
+    <form name="Tick">
+      <input type="text" name="Clock" class="deck-status">
+    </form>
 
 		<p class="deck-status">
 			<span class="deck-status-current"></span>
