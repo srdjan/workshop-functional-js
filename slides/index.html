@@ -25,6 +25,10 @@
   <link rel="stylesheet" href="./css/zerogrid.css">	
 	
 	<script src="./js/modernizr.custom.js"></script>
+
+  <script type="codemirror" data-selector="#code-log">
+    var show = console.log;
+  </script>
 </head>
 
 <body>
@@ -34,29 +38,58 @@
     </section>
 
     <section class="slide" id="textarea-code">
+      <h2> Functional Javascript Design Patterns </h2>
+      </br></br>
+      <div class="zerogrid">
+        <div class="row">
+          <div class="col-1-2">
+            <div class="wrap-col">
+              </br></br></br>
+              <ul>
+                <li><h3>Web site:</h3></li>
+                <li><h3>Twitter:</h3></li>
+                <li><h3>Github:</h3></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-2-2">
+            <div class="wrap-col">
+            </br></br></br>
+              <ul>
+                <li><h3><a href="http://srdjan.strbanovic.com">http://srdjan.strbanovic.com</a></h3></li>
+                <li><h3><a href="http://twitter.com/djidja8">@djidja8</a></h3></li>
+                <li><h3><a href="http://github.com/srdjan">@srdjan</a></h3></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="textarea-code">
       <h2>JavaScript Overview</h2>
       </br></br>
       <div class="zerogrid">
         <div class="row">
-        <div class="col-1-3">
-          <div class="wrap-col">
-            </br></br></br>
-            <ul>
-              <li><h3>Type System</h3></li>
-              <li><h3>Primitive Values</h3></li>
-              <li><h3>Objects</h3></li>
-              <li><h3>Inheritance</h3></li>
-              <li><h3>Functions</h3></li>
-              <li><h3>Closures</h3></li>
-            </ul>
+          <div class="col-1-3">
+            <div class="wrap-col">
+              </br></br></br>
+              <ul>
+                <li><h3>Type System</h3></li>
+                <li><h3>Primitive Values</h3></li>
+                <li><h3>Objects</h3></li>
+                <li><h3>Inheritance</h3></li>
+                <li><h3>Functions</h3></li>
+                <li><h3>Closures</h3></li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="col-2-3">
-          <div class="wrap-col">
+          <div class="col-2-3">
+            <div class="wrap-col">
             </br></br></br>
             <img src="./img/js-logo.jpg" alt="">
+            </div>
           </div>
-        </div>
         </div>
       </div>
     </section>
@@ -100,6 +133,28 @@
     </section>
 
     <section class="slide" id="textarea-code">
+      <h2>JavaScript Overview - Type System</h2>
+      <div>
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+function C(){}
+
+var o = new C();
+show(o instanceof C);//-> true, because: Object.getPrototypeOf(o) === C.prototype
+
+var str = new String("aaaa");
+show(str instanceof Object);
+show(str instanceof Function);
+
+var arr = [];
+show(arr instanceof Object);
+show(arr instanceof Function);
+
+show(Object instanceof Function); //-> since Object is a ctor function
+        </textarea>
+      </div>        
+    </section>
+
+    <section class="slide" id="textarea-code">
       <h2>JavaScript Overview - Primitive Values</h2>
       <h3>A data that is not an object and does not have any methods.</br></br>
       With the exception of null and undefined, all primitives values have object equivalents which wrap around them</br>
@@ -109,11 +164,11 @@
       <ul>
         <li><h4>Immutable</h4></li>
           <div>
-            <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+            <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var a = 10;        
-console.log(a);
+show(a);
 a = 11;
-console.log(a);
+show(a);
             </textarea>
         </div>        
         <li><h4>Compared by value, they don’t have individual identities</h4></li>
@@ -121,19 +176,19 @@ console.log(a);
           <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var a = 10;        
 var b = 10;        
-console.log(a === b);
+show(a === b);
           </textarea>
         </div>              
         <li><h4>Wrapper objects</h4></li>
           <div>
             <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
-console.log(typeof "abc");
-console.log(typeof new String("abc"));
+show(typeof "abc");
+show(typeof new String("abc"));
 
-console.log("abc" instanceof String);
-console.log(new String("abc") instanceof String);
+show("abc" instanceof String);
+show(new String("abc") instanceof String);
 
-console.log("abc" === new String("abc"));
+show("abc" === new String("abc"));
           </textarea>
         </div>        
       </ul>
@@ -149,7 +204,7 @@ console.log("abc" === new String("abc"));
       <div>
         <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 function logArrayElements(element, index, array) {
-    console.log("a[" + index + "] = " + element);
+    show("a[" + index + "] = " + element);
 }
 
 var props = Object.getOwnPropertyNames(Object.prototype);
@@ -162,9 +217,9 @@ props.forEach(logArrayElements);
           <div>
             <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var s1 = new String("abc");
-console.log(s1);
+show(s1);
 s1 = new String("def");
-console.log(s1);
+show(s1);
           </textarea>
         </div>               
         <li><h4>Have unique identities and are compared by reference</h4></li>
@@ -172,9 +227,9 @@ console.log(s1);
             <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var s1 = new String("abc");
 var s2 = s1;
-console.log(s1 === s2);
+show(s1 === s2);
 s2 = new String("def");          
-console.log(s1 === s2);
+show(s1 === s2);
           </textarea>
         </div>               
         <li><h4>Variables hold references to objects</h4></li>
@@ -182,9 +237,9 @@ console.log(s1 === s2);
             <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var s1 = new String("abc");
 s2 = s1;
-console.log(s2);
+show(s2);
 s1 = new String("def");
-console.log(s2);
+show(s2);
           </textarea>
         </div>               
       </ul>
@@ -217,7 +272,7 @@ function Person() {
     this.canTalk = true;
     this.greet = function() {
         if (this.canTalk) {
-            console.log("Hi, I'm " + this.name);
+            show("Hi, I'm " + this.name);
         }
     };
 };
@@ -226,7 +281,7 @@ function Employee(name, title) {
     this.name = name;
     this.title = title;
     this.greet = function() {
-        console.log("Hi, I'm " + this.name + ", the " + this.title);
+        show("Hi, I'm " + this.name + ", the " + this.title);
     };
 };
 Employee.prototype = new Person();
@@ -255,7 +310,7 @@ var Person = {
     canTalk: true,
     greet: function() {
         if (this.canTalk) {
-            console.log("Hi, I'm " + this.name);
+            show("Hi, I'm " + this.name);
         }
     }
 };
@@ -263,7 +318,7 @@ var Person = {
 var Employee = Object.create(Person);
 Employee.title = undefined;
 Employee.greet = function() {
-    console.log("Hi, I'm " + this.name + ", the " + this.title);
+    show("Hi, I'm " + this.name + ", the " + this.title);
 };
 
 var bob = Object.create(Employee, {
@@ -318,7 +373,7 @@ function add(a, b) {
   return a + b;
 }
 var result = add(1, 3);
-console.log(result); 
+show(result); 
         </textarea>
       </div>
       <div>No name:
@@ -327,7 +382,7 @@ var add = function(a, b) {
   return a + b;
 }
 var result = add(1, 3);
-console.log(result); 
+show(result); 
         </textarea>
       </div>      
       <div>Anonymous:
@@ -338,7 +393,7 @@ var add = function(a, b) {
   }
 }
 var result = add(1, 3)();
-console.log(result); 
+show(result); 
         </textarea>
       </div>      
     </section>
@@ -366,7 +421,7 @@ console.log(result);
       <div>
         <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 function logArrayElements(element, index, array) {
-    console.log("a[" + index + "] = " + element);
+    show("a[" + index + "] = " + element);
 }
 
 var props = Object.getOwnPropertyNames(Function.prototype);
@@ -406,10 +461,10 @@ var makeCounter = function() {
 
 var counter1 = makeCounter();
 var counter2 = makeCounter();
-console.log(counter1.value());
+show(counter1.value());
 counter1.increment();
-console.log(counter1.value());
-console.log(counter2.value());
+show(counter1.value());
+show(counter2.value());
         </textarea>
       </div>
     </section>
@@ -529,6 +584,7 @@ console.log(counter2.value());
       <h2>JavaScript and Functional programming</h2>
       <h3>JavaScript is a cross paradigm language, allowing a variety of different programming paradigms: OO, functional, procedural</h3>
       <h3>Although not a pure functional programming language, it allows one to program in a functional way.</h3>
+      </br></br>
       <h3>Supported:</h3>
       <ul>
         <li><h4>First Class Functions</li></h4>
@@ -549,13 +605,15 @@ console.log(counter2.value());
 
     <section class="slide" id="textarea-code">
       <h2>Functional Programming Techniques - Pure function</h2>
+      </br></br>
       <img src="./img/Function-as-a-box.jpg" />
+      </br></br>
       <div>
         <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var f = function(name) {
   return "Hello there " + name;
 }
-console.log(f("Joe!"));
+show(f("Joe!"));
         </textarea>
       </div>
       <ul>
@@ -566,104 +624,51 @@ console.log(f("Joe!"));
 
     <section class="slide" id="textarea-code">
       <h2>Functional Programming Techniques - Higher Order Functions</h2>
-      </br></br>
 
     </section>
 
     <section class="slide" id="textarea-code">
       <h2>Functional Programming Techniques - Composition/Combinators</h2>
-      <img src="./img/Function-as-a-box.jpg" />
-      <div>
-        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
-var f = function(name) {
-  return "Hello there " + name;
-}
-console.log(f("Joe!"));
-        </textarea>
-      </div>
-      <ul>
-        <li><h4>Same input, same ouput</h4></li>
-        <li><h4>No side effects</h4></li>
-      </ul>
+ 
     </section>
 
     <section class="slide" id="textarea-code">
       <h2>Functional Programming Techniques - Currying/Partial Application</h2>
-      <img src="./img/Function-as-a-box.jpg" />
-      <div>
-        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
-var f = function(name) {
-  return "Hello there " + name;
-}
-console.log(f("Joe!"));
-        </textarea>
-      </div>
-      <ul>
-        <li><h4>Same input, same ouput</h4></li>
-        <li><h4>No side effects</h4></li>
-      </ul>
+
     </section>
     
     <section class="slide" id="textarea-code">
       <h2>Functional Programming Techniques - Example: Filter</h2>
-      <img src="./img/Function-as-a-box.jpg" />
-      <div>
-        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
-var f = function(name) {
-  return "Hello there " + name;
-}
-console.log(f("Joe!"));
-        </textarea>
-      </div>
-      <ul>
-        <li><h4>Same input, same ouput</h4></li>
-        <li><h4>No side effects</h4></li>
-      </ul>
+
     </section>
+
     <section class="slide" id="textarea-code">
       <h2>Functional Programming Techniques - Example: Map</h2>
-      <img src="./img/Function-as-a-box.jpg" />
-      <div>
-        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
-var f = function(name) {
-  return "Hello there " + name;
-}
-console.log(f("Joe!"));
-        </textarea>
-      </div>
-      <ul>
-        <li><h4>Same input, same ouput</h4></li>
-        <li><h4>No side effects</h4></li>
-      </ul>
+
     </section>
 
     <section class="slide" id="textarea-code">
       <h2>Functional Programming Techniques - Example: Reduce</h2>
-      <img src="./img/Function-as-a-box.jpg" />
-      <div>
-        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
-var f = function(name) {
-  return "Hello there " + name;
-}
-console.log(f("Joe!"));
-        </textarea>
-      </div>
-      <ul>
-        <li><h4>Same input, same ouput</h4></li>
-        <li><h4>No side effects</h4></li>
-      </ul>
+
     </section>
- 
+
+    <section class="slide" id="textarea-code">
+      <h2>Functional Programming Techniques - Canonical Example</h2>
+
+    </section>
 
     <section class="slide" id="textarea-code">
       <h2>Credits and resources</h2>
       <h3>Inspired by the work of many other people I have learned from</h3>
       </br>
-      <ul><h3>Motiviation:</h3>
         <li><h4>Brian Lansdorf: Hey Underscore, You're doing it wrong</h4></li>
         <li><h4>Functional JavaScript by Oliver Steele</h4></li>
         <li><h4>Reginald Braithwaite and allong.es</h4></li>
         <li><h4>https://github.com/timoxley/functional-javascript-workshop</h4></li>
+        <li><h4>Original Deck / CodeMirror integration by Irene Ros:</br>
+        <a href="https://github.com/iros/deck.js-codemirror">https://github.com/iros/deck.js-codemirror</a></h4>
+        <li><h4>This workshop's repo:</br>
+        <a href="https://github.com/srdjan/workshop-functional-js">https://github.com/srdjan/workshop-functional-js</a></h4>
       </ul></br></br>
       <h3>Thank you!</h3>
     </section>
@@ -678,71 +683,6 @@ console.log(f("Joe!"));
 			<h3> The rest just HAPPENS </h3>
 			<p> Code blocks aren't runnable by default. Because you might want to put crazy non runnable code in there. Like, html. </p>
 			<p> You can specify a codemirror theme as long as you include the stylesheet for it by setting the <i>theme</i> attribute </p>
-		</section>
-
-		<section class="slide" id="div-code">
-			<h2> This Code is in a div! </h2>
-			<div>
-				<div id="code" name="code" class="code" mode="javascript" style="display: none;">
-          var obj = { text : "Hello all!"};
-          console.log("HI THERE");
-        </div>
-			</div>
-			</br>
-			<p>
-				It looks like this: <br />
-				<code>
-&lt;div id=&quot;code&quot; class=&quot;code&quot; name=&quot;code&quot; mode=&quot;javascript&quot; style=&quot;display: none;&quot;&gt;
-<br>// codemirror demo party!
-<br>var obj = { text : &quot;Hello all!&quot;};
-<br>console.log(&quot;HI THERE&quot;);
-<br>&lt;/div&gt;
-				</code>
-			</p>
-		</section>
-
-		<section class="slide" id="textarea-code">
-			<h2> HTML Syntax?! Sweet. </h2>
-			<p>
-			  Note that it's defined by being put inside a textarea, that way it doesn't
-			  get evaluated. Replicate that however you see fit.
-			  Also, set the mode="text/html", not just "html".
-			</p>
-			<div>
-		  	<textarea type="text/html" class="code" mode="text/html" style="display: none;">// codemirror demo party!
-          <html style="color: green">
-            <head>
-              <title>Mixed HTML Example</title>
-              <style type="text/css">
-                h1 {font-family: comic sans; color: #f0f;}
-                div {background: yellow !important;}
-                body {
-                  max-width: 50em;
-                  margin: 1em 2em 1em 5em;
-                }
-              </style>
-            </head>
-            <body>
-              <h1>Mixed HTML Example</h1>
-              <script>
-                function jsFunc(arg1, arg2) {
-                  if (arg1 && arg2) document.body.innerHTML = "achoo";
-                }
-              </script>
-            </body>
-          </html>
-        </textarea>
-      </div>
-		</section>
-    		
-		<section class="slide" id="textarea-code">
-			<h2> Two runnable code blocks?! CRAZY! </h2>
-			<h3> First </h3>
-			<div><textarea id="code2" name="code" class="code" mode="javascript" style="display: none;" runnable="true">// codemirror demo party!
-console.log(1);</textarea></div>
-			<h3> Second </h3>
-			<div><textarea id="code3" name="code" class="code" mode="javascript" style="display: none;" runnable="true">// codemirror demo party!
-console.log(2);</textarea></div>
 		</section>
 
     <section class="slide" id="hidden-script-tags">
@@ -761,7 +701,7 @@ console.log(2);</textarea></div>
   		
   		<h3> Then your code </h3>
 			<div><textarea id="code4" name="code" class="code" mode="javascript" style="display: none;" runnable="true">// output my log
-console.log(someVar);</textarea></div>
+show(someVar);</textarea></div>
     </section>
     
     <section class="slide" id="cleanup-script-tags">
@@ -770,13 +710,13 @@ console.log(someVar);</textarea></div>
 			
 			<script type="codemirror/cleanup" data-selector="#code4">
 			  someVar = 12;
-			  console.log(someVar);
+			  show(someVar);
 			</script>
 			
       <code>
 &lt;script type=&quot;codemirror/cleanup&quot; data-selector=&quot;#code3&quot;&gt;<br/>
   someVar = 12;
-  console.log(someVar);<br/>
+  show(someVar);<br/>
 &lt;/script&gt;<br/>
   		</code>
   		
@@ -801,21 +741,12 @@ var someVar = 15;
       
       <code>
 &lt;textarea id=&quot;code4&quot; name=&quot;code&quot; class=&quot;code&quot; mode=&quot;javascript&quot; style=&quot;display: none;&quot; runnable=&quot;true&quot; globals=&quot;$&quot;&gt;<br />  // output my log
-  console.log($(&#39;script&#39;).size());<br />&lt;/textarea&gt;<br />
+  Su($(&#39;script&#39;).size());<br />&lt;/textarea&gt;<br />
       </code>
       <textarea id="code4" name="code" class="code" mode="javascript" style="display: none;" runnable="true" globals="$">// output my log
 console.log($('script').size());</textarea>
 		</section>
 		
-		<section class="slide" id="info">
-			<h2> Repo: </h2>
-			<a href="https://github.com/iros/deck.js-codemirror">https://github.com/iros/deck.js-codemirror</a>
-			<h3> By: </h3>
-			Irene Ros <br />
-			<a href="http://ireneros.com">http://ireneros.com</a> <br />
-			<a href="http://twitter.com/ireneros">@ireneros</a>
-		</section>
-
     <section class="slide" id="textarea-code">
       <h2>JavaScript Overview - Type System</h2>
       <h4>In JavaScript, almost everything is an object.</br>
