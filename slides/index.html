@@ -36,46 +36,25 @@
     <section class="slide" id="textarea-code">
       <h2>JavaScript Overview</h2>
       </br></br>
-       <ul>
-        <li><h3>Type System</h3></li>
-        <li><h3>Objects</h3></li>
-        <li><h3>Functions</h3></li>
-        <li><h3>Closures</h3></li>
-        <li><h3>Prototypes</h3></li>
-      </ul>
-    </section>
-
-    <section class="slide" id="textarea-code">
-      <h2>JavaScript Overview - Type System</h2>
-      <h3>Javascript has dynamic and loosly typed type system.</br>
-       In JavaScript, almost everything is an object.</br>
-       Even primitive types, except null and undefined, are treated as objects.
-      </h3></br>
       <div class="zerogrid">
         <div class="row">
         <div class="col-1-3">
           <div class="wrap-col">
+            </br></br></br>
             <ul>
-              <li><h4>Number</h4></li>
-              <li><h4>String</h4></li>
-              <li><h4>Boolean</h4></li>
-              <li><h4>Object</h4></li>
-              <ul>
-                <li><h4>Function</h4></li>
-                <li><h4>Array</h4></li>
-                <li><h4>Date</h4></li>
-                <li><h4>Math</h4></li>
-                <li><h4>RegExp</h4></li>
-              </ul>
-              <li><h4>Null</h4></li>
-              <li><h4>Undefined</h4></li>
+              <li><h3>Type System</h3></li>
+              <li><h3>Primitive Values</h3></li>
+              <li><h3>Objects</h3></li>
+              <li><h3>Inheritance</h3></li>
+              <li><h3>Functions</h3></li>
+              <li><h3>Closures</h3></li>
             </ul>
           </div>
         </div>
         <div class="col-2-3">
           <div class="wrap-col">
             </br></br></br>
-            <img src="./img/javascript-type-relationships.png" alt="http://vijayan.ca/blog/2012/02/21/javascript-type-model/">
+            <img src="./img/js-logo.jpg" alt="">
           </div>
         </div>
         </div>
@@ -83,10 +62,88 @@
     </section>
 
     <section class="slide" id="textarea-code">
+      <h2>JavaScript Overview - Type System</h2>
+      <h3>Javascript has dynamic and loosly typed type system with two main types: primitive values and objects.</h3>
+      </br>
+      <div class="zerogrid">
+        <div class="row">
+        <div class="col-1-3">
+          <div class="wrap-col">
+            <h3>Primitive (value) types:</h3>
+            <ul>
+              <li><h4>number</h4></li>
+              <li><h4>string</h4></li>
+              <li><h4>boolean</h4></li>
+              <li><h4>null</h4></li>
+              <li><h4>undefined</h4></li>
+            </ul>
+            <h3>Object (reference) types:</h3>
+            <ul>
+              <li><h4>Object</h4></li>
+              <li><h4>Function</h4></li>
+              <li><h4>Array</h4></li>
+              <li><h4>Date</h4></li>
+              <li><h4>RegExp</h4></li>
+              <li><h4>*Wrappers for primitives: Boolean, Number, String</h4></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-2-3">
+          <div class="wrap-col">
+            </br></br></br>
+            <img src="./img/javascript-type-relationships.png" alt="">
+            <p><a href="http://vijayan.ca/blog/2012/02/21/javascript-type-model/" target="_blank">vijayan, “javascript-type-model” </a></p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="slide" id="textarea-code">
+      <h2>JavaScript Overview - Primitive Values</h2>
+      <h3>A data that is not an object and does not have any methods.</br></br>
+      With the exception of null and undefined, all primitives values have object equivalents which wrap around them</br>
+      In the ECMAScript 5 'strict' mode wrapping/unwrapping is done transparently using the methods from the wrapper’s prototype</h3>
+      </br>
+      <h3>Characteristics:</h3>
+      <ul>
+        <li><h4>Immutable</h4></li>
+          <div>
+            <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var a = 10;        
+console.log(a);
+a = 11;
+console.log(a);
+            </textarea>
+        </div>        
+        <li><h4>Compared by value, they don’t have individual identities</h4></li>
+          <div>
+          <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var a = 10;        
+var b = 10;        
+console.log(a === b);
+          </textarea>
+        </div>              
+        <li><h4>Wrapper objects</h4></li>
+          <div>
+            <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+console.log(typeof "abc");
+console.log(typeof new String("abc"));
+
+console.log("abc" instanceof String);
+console.log(new String("abc") instanceof String);
+
+console.log("abc" === new String("abc"));
+          </textarea>
+        </div>        
+      </ul>
+    </section>
+
+    <section class="slide" id="textarea-code">
       <h2>JavaScript Overview - Objects</h2>
       <h3>JavaScript objects can be thought of as simple collections of name-value pairs, similar to dictionaries.</br>
         The "name" part is a JavaScript string, while the value can be any JavaScript value — including more objects.</br>
-        This allows you to build data structures of arbitrary complexity.
+        This enables building data structures of arbitrary complexity.
       </h3>
       </br>
       <div>
@@ -99,100 +156,64 @@ var props = Object.getOwnPropertyNames(Object.prototype);
 props.forEach(logArrayElements);  
         </textarea>
       </div>
-     </section>
-
-    <section class="slide" id="textarea-code">
-      <h2>JavaScript Overview - Functions</h2>
-      <h3>In JavaScript every function is actually a Function object and is used to perform a task or calculates a value.</h3></br>
-      <ul><h3>Function object has the following properties:</h3>
-        <li><h4>arguments -- An Array/object containing the arguments passed to the function</h4></li>
-        <ul>
-          <li><h4>arguments.length -- Stores the number of arguments in the array</h4></li>
-          <li><h4>arguments.callee -- Pointer to the executing function (allows anonymous functions to recurse)</h4></li>
-        </ul>
-        <li><h4>length -- The number of arguments the function was expecting myFunc(x,y) = 2</h4></li>
-        <li><h4>constructor -- function pointer to the constructor function</h4></li>
-        <li><h4>prototype -- allows the creation of prototyes</h4></li>
-      </ul>
-      <ul><h3>Every function has the following methods:</h3>
-        <li><h4>apply -- A method that lets you more easilly pass function arguments</h4></li>
-        <li><h4>call -- Allows you to call a function within a different context</h4></li>
-        <li><h4>bind -- creates a new function that, when called, has its 'this' set to the provided value, with a given sequence of arguments preceding any provided when the new function is called</h4></li>
-        <li><h4>toString -- Returns the source of the function as a string</h4></li>
-        <li><h4>*toSource -- Returns the source of the function as a string</h4></li>
-      </ul>
-      <div>
-        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
-function logArrayElements(element, index, array) {
-    console.log("a[" + index + "] = " + element);
-}
-
-var props = Object.getOwnPropertyNames(Function.prototype);
-props.forEach(logArrayElements);  
-
-        </textarea>
-      </div>
-    </section>
-
-    <section class="slide" id="textarea-code">
-      <h2>JavaScript Overview - Functions</h2>
-      <h3>A function definition (declaration) consists of the function keyword, followed by:</h3>
+      <h3>Characteristics:</h3>
       <ul>
-        <li><h4>The name of the function (optional)</h4></li>
-        <li><h4>List of arguments to the function, enclosed in parentheses and separated by commas</h4></li>
-        <li><h4>Statements that define the function, enclosed in curly brackets, { }</h4></li>
+        <li><h4>Mutable by default</h4></li>
+          <div>
+            <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var s1 = new String("abc");
+console.log(s1);
+s1 = new String("def");
+console.log(s1);
+          </textarea>
+        </div>               
+        <li><h4>Have unique identities and are compared by reference</h4></li>
+          <div>
+            <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var s1 = new String("abc");
+var s2 = s1;
+console.log(s1 === s2);
+s2 = new String("def");          
+console.log(s1 === s2);
+          </textarea>
+        </div>               
+        <li><h4>Variables hold references to objects</h4></li>
+          <div>
+            <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var s1 = new String("abc");
+s2 = s1;
+console.log(s2);
+s1 = new String("def");
+console.log(s2);
+          </textarea>
+        </div>               
       </ul>
-      <div>
-        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
-var add = function(a, b) {
-  return a + b;
-}
-var result = add(1, 3);
-console.log(result); 
-        </textarea>
-      </div>
     </section>
 
     <section class="slide" id="textarea-code">
-      <h2>JavaScript Overview - Closures</h2>
-      <h3>JavaScript allows for the nesting of functions and grants the inner function full access to all the variables and functions defined in the outer function.</br> However, the outer function does not have access to the variables and functions defined inside the inner function.
+      <h2>JavaScript Overview - Inheritance</h2>
+      <!-- http://www.adobe.com/devnet/html5/articles/javascript-object-creation.html -->
+      <h3>JavaScript is not a class-based language, but a prototype-based one.</br></br>
+        Code reuse is done not by making class templates that are used to instantiate objects, but by creating new objects directly,</br>
+        and then making other new objects based on existing ones. The existing object is assigned as the prototype of the new object</br>
+        and then new behavior can be added to the new object.</h3>
       </h3>
       </br>
-      <div>
-        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
-var pet = function(name) {          // The outer function defines a variable called "name"
-      var getName = function() {
-        return name;                // The inner function has access to the "name" variable of the outer function
-      }
-
-      return getName;               // Return the inner function, thereby exposing it to outer scopes
-    },
-    myPet = pet("Vivie");
-    
-myPet();                            // Returns "Vivie"
-        </textarea>
-      </div>
-    </section>
-
-    <section class="slide" id="textarea-code">
-      <h2>JavaScript Overview - Prototypes</h2>
-      <!-- <h3>Javascript is dynamic and it has no classes at all, it's all just instances (objects).</br> -->
-      <h3>All objects in JavaScript are descended from Object nad they inherit methods and properties from Object.prototype, although they may be overridden.</h3>
-      </br></br>
       <ul>
         <li><h4>JavaScript does not feature a classical inheritance model; it uses a prototypal one.</h4></li>
-        <li><h4>Inheritance in JavaScript uses prototype chains</h4></li>
+        <li><h4>All objects in JavaScript are descended from Object and they inherit properties from Object.prototype, although they may be overridden</h4></li>
         <li><h4>null, by definition, has no prototype, and acts as the final link in this prototype chain</h4></li>
-        <li><h4>hasOwnProperty is the only thing in JavaScript which deals with properties and does not traverse the prototype chain</h4></li>
       </ul>
       <img src="./img/prototype-chain.png" alt="http://yehudakatz.com/2011/08/12/understanding-prototypes-in-javascript/">
     </section>
 
     <section class="slide" id="textarea-code">
-      <h2>JavaScript Overview - Prototypes - example</h2>
+      <h2>JavaScript Overview - Inheritance example</h2>
+      <h3>Using the new operator</h3>
       <div>
         <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
-var Person = function() {
+function Person() {
+    this.name;
     this.canTalk = true;
     this.greet = function() {
         if (this.canTalk) {
@@ -201,18 +222,16 @@ var Person = function() {
     };
 };
 
-var Employee = function(name, title) {
+function Employee(name, title) {
     this.name = name;
     this.title = title;
     this.greet = function() {
-        if (this.canTalk) {
-            console.log("Hi, I'm " + this.name + ", the " + this.title);
-        }
+        console.log("Hi, I'm " + this.name + ", the " + this.title);
     };
 };
 Employee.prototype = new Person();
 
-var Mime = function(name) {
+function Mime(name) {
     this.name = name;
     this.canTalk = false;
 };
@@ -227,75 +246,309 @@ mime.greet();
     </section>
 
     <section class="slide" id="textarea-code">
+      <h2>JavaScript Overview - Inheritance example</h2>
+      <h3>Object.create as an alternative to the new operator</h3>
+      <div>
+        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var Person = {
+    name: undefined,
+    canTalk: true,
+    greet: function() {
+        if (this.canTalk) {
+            console.log("Hi, I'm " + this.name);
+        }
+    }
+};
+
+var Employee = Object.create(Person);
+Employee.title = undefined;
+Employee.greet = function() {
+    console.log("Hi, I'm " + this.name + ", the " + this.title);
+};
+
+var bob = Object.create(Employee, {
+    name: {
+        value: "Bob"
+    },
+    title: {
+        value: "Builder"
+    }
+});
+bob.greet();
+
+function Mime(name) {
+    this.name = name;
+    this.canTalk = false;
+};
+Mime.prototype = Object.create(Person);
+
+var mime = new Mime('Mime');
+mime.greet();
+        </textarea>
+      </div>
+    </section>
+
+    <section class="slide" id="textarea-code">
+      <h2>JavaScript Overview - Functions</h2>
+      <h3>In JavaScript, functions are objects and are used to perform a task or calculates a value.</br>
+        JavaScript functions have properties and methods that they inherit from Function object and you can add your</br>
+        own properties and methods to functions.
+      </h3></br>
+      <ul>
+        <li><h4>Functions are values that can be bound to names like any other value, passed as arguments, returned from other functions</h4></li>
+        <li><h4>Functions are applied to arguments.</h4></li>
+        <li><h4>The arguments are passed by sharing, which is also called “pass by value.”</h4></li>
+        <li><h4>Function bodies have zero or more expressions.</h4></li>
+        <li><h4>Function application evaluates whatever is returned with the return keyword, or to undefined.</h4></li>
+        <li><h4>Function application creates a scope. Scopes are nested and free variable references closed over.</h4></li>
+        <li><h4>Variables can shadow variables in an enclosing scope.</h4></li>
+      </ul>
+    </section>
+
+    <section class="slide" id="textarea-code">
+      <h2>JavaScript Overview - Functions</h2>
+      <h3> 
+        Function declarations are hoisted—moved in their entirety to the beginning of the current scope and it consists of the function</br>
+        keyword, followed by: the name of the function (optional, see bellow), list of arguments to the function, enclosed in parentheses and</br>
+        separated by commas and statements that define the function, enclosed in curly brackets, { }
+      </h3></br>
+      <div>With name:
+        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+function add(a, b) {
+  return a + b;
+}
+var result = add(1, 3);
+console.log(result); 
+        </textarea>
+      </div>
+      <div>No name:
+        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var add = function(a, b) {
+  return a + b;
+}
+var result = add(1, 3);
+console.log(result); 
+        </textarea>
+      </div>      
+      <div>Anonymous:
+        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var add = function(a, b) {
+  return function() {
+    return a + b;
+  }
+}
+var result = add(1, 3)();
+console.log(result); 
+        </textarea>
+      </div>      
+    </section>
+
+    <section class="slide" id="textarea-code">
+      <h2>JavaScript Overview - Functions</h2>
+      <h3>Function object (all functions inherit from it) has the following properties:</h3>
+      <ul>
+        <li><h4>arguments -- An Array/object containing the arguments passed to the function</h4></li>
+        <ul>
+          <li><h4>arguments.length -- Stores the number of arguments in the array</h4></li>
+          <li><h4>arguments.callee -- Pointer to the executing function (allows anonymous functions to recurse)</h4></li>
+        </ul>
+        <li><h4>length -- The number of arguments the function was expecting</h4></li>
+        <li><h4>constructor -- function pointer to the constructor function</h4></li>
+        <li><h4>prototype -- allows the creation of prototyes</h4></li>
+      </ul>
+      <h3>Function object has the following methods:</h3>
+      <ul>
+        <li><h4>apply -- A method that lets you more easilly pass function arguments</h4></li>
+        <li><h4>call -- Allows you to call a function within a different context</h4></li>
+        <li><h4>bind -- creates a new function that, when called, has its 'this' set to the provided value, with a given sequence of arguments preceding any provided when the new function is called</h4></li>
+        <li><h4>toString -- Returns the source of the function as a string</h4></li>
+      </ul>
+      <div>
+        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+function logArrayElements(element, index, array) {
+    console.log("a[" + index + "] = " + element);
+}
+
+var props = Object.getOwnPropertyNames(Function.prototype);
+props.forEach(logArrayElements);  
+        </textarea>
+      </div>
+    </section>
+
+    <section class="slide" id="textarea-code">
+      <h2>JavaScript Overview - Closures</h2>
+      <h3>JavaScript allows for the nesting of functions and grants the inner function full access to all the variables and functions</br>
+        defined in the outer function.</br>
+        However, the outer function does not have access to the variables and functions defined inside the inner function.</br>
+        You can use a closure anywhere that you might normally use an object with only a single method.</br>
+        Closures enable data hiding and encapsulation.</br>
+      </h3>
+      </br>
+      <div>
+        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var makeCounter = function() {
+  var privateCounter = 0;
+  function changeBy(val) {
+    privateCounter += val;
+  }
+  return {
+    increment: function() {
+      changeBy(1);
+    },
+    decrement: function() {
+      changeBy(-1);
+    },
+    value: function() {
+      return privateCounter;
+    }
+  }  
+};
+
+var counter1 = makeCounter();
+var counter2 = makeCounter();
+console.log(counter1.value());
+counter1.increment();
+console.log(counter1.value());
+console.log(counter2.value());
+        </textarea>
+      </div>
+    </section>
+
+    <section class="slide" id="textarea-code">
       <h2>Functional Programming Overview</h2>
       </br></br>
-       <ul>
-        <li><h3>What is functional programming?</h3></li>
-        <li><h3>Why Functional?</h3></li>
-        <li><h3>JavaScript and Functional programming</h3></li>
-      </ul>
+      <div class="zerogrid">
+        <div class="row">
+        <div class="col-1-3">
+          <div class="wrap-col">
+            </br></br></br>
+            <ul>
+              <li><h3>What is functional programming?</h3></li>
+              <li><h3>Why Functional?</h3></li>
+              <li><h3>JavaScript and Functional programming</h3></li>
+              <li><h3>Pure Function</h3></li>
+              <li><h3>Higher Order Functions</h3></li>
+              <li><h3>Composition/Combinators</h3></li>
+              <li><h3>Currying/Partial Application</h3></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-2-3">
+          <div class="wrap-col">
+            </br></br></br>
+            <img src="./img/fn-logo.jpg" alt="">
+          </div>
+        </div>
+        </div>
+      </div>    
     </section>
 
     <section class="slide" id="textarea-code">
       <h2> What is functional programming</h2>
       <ul>
         <li>
-        <h3>No Side Effects</h3>
-          <h4>A function should do one thing. Any function that does something other than its single intended purpose is said to have side effects. In pure functional programming languages side effects are not allowed, but in JavaScript there are no such guarantees.</h4>
+          <h3>First Class Functions</h3>
+          <h4>Functions can be stored in variables, passed as arguments to functions, created within functions and returned from functions</h4>
         </li>
         <li>
-        <h3>Referential Transparency</h3>
-          <h4>Ability of code to be evaluated in a predictable manner, not influenced by external state. That same code should always output the same value for a given set of arguments, and only changing those arguments can a output value be different.</h4>
-        </li>
-        <li>
-        <h3>Immutability</h3> 
-          <h4>Immutability, or the inability for variables to changes their values once created. In other words, all things created should strive to be constants. In JavaScript there is no internal mechanism to enforce this as there is in pure functional programming languages like Haskell and friends. JavaScript is dynamic and without strict typing, and so keeping variables immutable in a codebase is merely a convention.</h4>
-        </li>
-        <li>
-        <h3>Higher Order Functions</h3> 
+          <h3>Higher Order Functions</h3> 
           <h4>A higher-order function is a function that can accept functions as arguments, and/or can return a function.</h4>
+        </li>
+        <li>
+          <h3>Anonymous Functions</h3> 
+          <h4>An anonymous function is a function that was declared without any named identifier to refer to it. The most common use for</br>
+            anonymous functions are as arguments to other functions, or as a closure.</h4>
+        </li>
+        <li>
+          <h3>No Side Effects</h3>
+          <h4>A function should do one thing. Any function that does something other than its single intended purpose is said to have side effects.</br>
+            In pure functional programming languages side effects are not allowed, but in JavaScript there are no such guarantees.</h4>
+        </li>
+        <li>
+          <h3>Referential Transparency</h3>
+          <h4>Ability of code to be evaluated in a predictable manner, not influenced by external state. That same code should always output the same</br>
+            value for a given set of arguments, and only changing those arguments can a output value be different.</h4>
+        </li>
+        <li>
+          <h3>Immutability</h3> 
+          <h4>Inability for variables to change their values once created. In other words, all things created should strive to be constants.</br>
+            In JavaScript there is no internal mechanism to enforce this as there is in pure functional programming languages like Haskell and others.</h4>
+        </li>
+        <li>
+          <h3>Currying/Partial Application</h3> 
+          <h4>A function that will return a new function until it receives all it's arguments.</br>
+            Calling a curried function with only some of its arguments is sometimes called partial application.</br>
+            Some programming languages automatically curry and partially evaluate functions without the need to manually nest them.</h4>
+        </li>
+        <li>
+          <h3>Tail Call Optimization</h3> 
+          <h4>If the last thing a routine does before it returns is call another routine, rather than doing a jump-and-add-stack-frame immediately</br>
+            followed by a pop-stack-frame-and-return-to-caller, it should be safe to simply jump to the start of the second routine, letting it</br>
+            re-use the first routine's stack frame (environment).</h4>
         </li>
       </ul>
     </section>
 
     <section class="slide" id="textarea-code">
       <h2>Why Functional?</h2>
-      <h3>"Functional programming isn't the goal. The goal is to simplify the complicated."</h3>
+      <h3>"Functional programming isn't the goal. The goal is to simplify the complicated."
+        Although it’s possible to write good code using techniques from functional programming, it’s also possible to write bad code. </h3>
       </br>
-      <ul><h3>Motiviation:</h3>
-        <li><h4>Write less code</h4></li>
-        <li><h4>Fewer errors</h4></li>
-        <li><h4>Easy concurrency</h4></li>
-        <li><h4>Testability</h4></li>
-      </ul></br></br>
+      <div class="zerogrid">
+        <div class="row">
+        <div class="col-1-3">
+          <div class="wrap-col">
+            </br></br></br>
+             <ul><h3>Motiviation:</h3>
+                <li><h4>Write less code</h4></li>
+                <li><h4>Fewer errors</h4></li>
+                <li><h4>Easy concurrency</h4></li>
+                <li><h4>Testability</h4></li>
+              </ul>
+          </div>
+        </div>
+        <div class="col-2-3">
+          <div class="wrap-col">
+            </br></br></br>
+            <img src="./img/3Paradigms.png" alt="">
+          </div>
+        </div>
+        </div>
+      </div>  
+      </br>
       <h3>but...</h3>
     </section>
 
     <section class="slide" id="textarea-code">
       <h2>Don't be too busy... It is worth it :)</h2>
+      <h3>For most of us, the real benefit of adopting a functional style is that our programs can be broken down into smaller, simpler pieces that are both more reliable and easier to understand.</h3>
       <img src="./img/no-thanks-were-too-busy.jpg" />
     </section>
 
     <section class="slide" id="textarea-spec">
       <h2>JavaScript and Functional programming</h2>
-      <h3>It is a cross paradigm language, allowing a variety of different programming paradigms: OO, functional, procedural</h3>
-      <h3>Javascript is not pure functional programming, but it allows one to program in a functional way.</h3>
-      <ul><h3>Supported:</h3>
-        <li><h4>Functions are "first-class" objects</li></h4>
-        <li><h4>Functions can accept function as argumrnt and return function</li></h4>
+      <h3>JavaScript is a cross paradigm language, allowing a variety of different programming paradigms: OO, functional, procedural</h3>
+      <h3>Although not a pure functional programming language, it allows one to program in a functional way.</h3>
+      <h3>Supported:</h3>
+      <ul>
+        <li><h4>First Class Functions</li></h4>
+        <li><h4>Higher Order Functions</li></h4>
         <li><h4>Anonymous functions</li></h4>
         <li><h4>Closuress</li></h4>
       </ul>
-      <ul><h3>Not directly supported:</h3>
+      <h3>Not directly supported:</h3>
+      <ul>
         <li><h4>Pure functions</li></h4>
         <li><h4>Immutability</li></h4>
+        <li><h4>No Side Effects</li></h4>
+        <li><h4>Currying/Partial Application</li></h4> 
         <li><h4>Mandatory function result return (implicitly returns 'undefined' if missing return statements)</li></h4>
         <li><h4>Tail recursive functions</li></h4>
       </ul>
     </section>
 
     <section class="slide" id="textarea-code">
-      <h2>Pure function</h2>
+      <h2>Functional Programming Techniques - Pure function</h2>
       <img src="./img/Function-as-a-box.jpg" />
       <div>
         <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
@@ -311,7 +564,95 @@ console.log(f("Joe!"));
       </ul>
     </section>
 
+    <section class="slide" id="textarea-code">
+      <h2>Functional Programming Techniques - Higher Order Functions</h2>
+      </br></br>
 
+    </section>
+
+    <section class="slide" id="textarea-code">
+      <h2>Functional Programming Techniques - Composition/Combinators</h2>
+      <img src="./img/Function-as-a-box.jpg" />
+      <div>
+        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var f = function(name) {
+  return "Hello there " + name;
+}
+console.log(f("Joe!"));
+        </textarea>
+      </div>
+      <ul>
+        <li><h4>Same input, same ouput</h4></li>
+        <li><h4>No side effects</h4></li>
+      </ul>
+    </section>
+
+    <section class="slide" id="textarea-code">
+      <h2>Functional Programming Techniques - Currying/Partial Application</h2>
+      <img src="./img/Function-as-a-box.jpg" />
+      <div>
+        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var f = function(name) {
+  return "Hello there " + name;
+}
+console.log(f("Joe!"));
+        </textarea>
+      </div>
+      <ul>
+        <li><h4>Same input, same ouput</h4></li>
+        <li><h4>No side effects</h4></li>
+      </ul>
+    </section>
+    
+    <section class="slide" id="textarea-code">
+      <h2>Functional Programming Techniques - Example: Filter</h2>
+      <img src="./img/Function-as-a-box.jpg" />
+      <div>
+        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var f = function(name) {
+  return "Hello there " + name;
+}
+console.log(f("Joe!"));
+        </textarea>
+      </div>
+      <ul>
+        <li><h4>Same input, same ouput</h4></li>
+        <li><h4>No side effects</h4></li>
+      </ul>
+    </section>
+    <section class="slide" id="textarea-code">
+      <h2>Functional Programming Techniques - Example: Map</h2>
+      <img src="./img/Function-as-a-box.jpg" />
+      <div>
+        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var f = function(name) {
+  return "Hello there " + name;
+}
+console.log(f("Joe!"));
+        </textarea>
+      </div>
+      <ul>
+        <li><h4>Same input, same ouput</h4></li>
+        <li><h4>No side effects</h4></li>
+      </ul>
+    </section>
+
+    <section class="slide" id="textarea-code">
+      <h2>Functional Programming Techniques - Example: Reduce</h2>
+      <img src="./img/Function-as-a-box.jpg" />
+      <div>
+        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var f = function(name) {
+  return "Hello there " + name;
+}
+console.log(f("Joe!"));
+        </textarea>
+      </div>
+      <ul>
+        <li><h4>Same input, same ouput</h4></li>
+        <li><h4>No side effects</h4></li>
+      </ul>
+    </section>
  
 
     <section class="slide" id="textarea-code">
@@ -322,7 +663,7 @@ console.log(f("Joe!"));
         <li><h4>Brian Lansdorf: Hey Underscore, You're doing it wrong</h4></li>
         <li><h4>Functional JavaScript by Oliver Steele</h4></li>
         <li><h4>Reginald Braithwaite and allong.es</h4></li>
-        <li><h4>...</h4></li>
+        <li><h4>https://github.com/timoxley/functional-javascript-workshop</h4></li>
       </ul></br></br>
       <h3>Thank you!</h3>
     </section>
