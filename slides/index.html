@@ -28,6 +28,20 @@
 
   <script type="codemirror" data-selector="#code-log">
     var show = console.log;
+    var map = window.map;
+
+    var first = function(num, word) {
+       if(arguments.length === 1) {
+          return first.bind(undefined, num);
+       }
+       var result = [];
+       if (word.length >= num) {
+           for (var i = 0; i < num; i++) {
+               result.push(word.substring(i, i + 1));
+           }
+       }
+       return result;
+    }
   </script>
 </head>
 
@@ -64,6 +78,8 @@
           </div>
         </div>
       </div>
+      </br></br>
+      <h3>Please ask questions anytime...</h3>
     </section>
 
     <section class="slide" id="textarea-code">
@@ -136,10 +152,10 @@
       <h2>JavaScript Overview - Type System</h2>
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
-function C(){}
+function f(){}
 
-var o = new C();
-show(o instanceof C);//-> true, because: Object.getPrototypeOf(o) === C.prototype
+var o = new f();
+show(o instanceof f);//-> true, because: Object.getPrototypeOf(o) === f.prototype
 
 var str = new String("aaaa");
 show(str instanceof Object);
@@ -149,7 +165,7 @@ var arr = [];
 show(arr instanceof Object);
 show(arr instanceof Function);
 
-show(Object instanceof Function); //-> since Object is a ctor function
+show(Object instanceof Function); //-> since Object is a (ctor) function
         </textarea>
       </div>        
     </section>
@@ -173,7 +189,7 @@ show(a);
         </div>        
         <li><h4>Compared by value, they don’t have individual identities</h4></li>
           <div>
-          <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+          <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var a = 10;        
 var b = 10;        
 show(a === b);
@@ -181,7 +197,7 @@ show(a === b);
         </div>              
         <li><h4>Wrapper objects</h4></li>
           <div>
-            <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+            <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 show(typeof "abc");
 show(typeof new String("abc"));
 
@@ -202,7 +218,7 @@ show("abc" === new String("abc"));
       </h3>
       </br>
       <div>
-        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 function logArrayElements(element, index, array) {
     show("a[" + index + "] = " + element);
 }
@@ -211,11 +227,15 @@ var props = Object.getOwnPropertyNames(Object.prototype);
 props.forEach(logArrayElements);  
         </textarea>
       </div>
+    </section>
+
+    <section class="slide" id="textarea-code">
+      <h2>JavaScript Overview - Objects</h2>
       <h3>Characteristics:</h3>
       <ul>
         <li><h4>Mutable by default</h4></li>
           <div>
-            <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+            <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var s1 = new String("abc");
 show(s1);
 s1 = new String("def");
@@ -224,7 +244,7 @@ show(s1);
         </div>               
         <li><h4>Have unique identities and are compared by reference</h4></li>
           <div>
-            <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+            <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var s1 = new String("abc");
 var s2 = s1;
 show(s1 === s2);
@@ -234,7 +254,7 @@ show(s1 === s2);
         </div>               
         <li><h4>Variables hold references to objects</h4></li>
           <div>
-            <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+            <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var s1 = new String("abc");
 s2 = s1;
 show(s2);
@@ -266,7 +286,7 @@ show(s2);
       <h2>JavaScript Overview - Inheritance example</h2>
       <h3>Using the new operator</h3>
       <div>
-        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 function Person() {
     this.name;
     this.canTalk = true;
@@ -304,7 +324,7 @@ mime.greet();
       <h2>JavaScript Overview - Inheritance example</h2>
       <h3>Object.create as an alternative to the new operator</h3>
       <div>
-        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var Person = {
     name: undefined,
     canTalk: true,
@@ -363,12 +383,13 @@ mime.greet();
     <section class="slide" id="textarea-code">
       <h2>JavaScript Overview - Functions</h2>
       <h3> 
-        Function declarations are hoisted—moved in their entirety to the beginning of the current scope and it consists of the function</br>
-        keyword, followed by: the name of the function (optional, see bellow), list of arguments to the function, enclosed in parentheses and</br>
-        separated by commas and statements that define the function, enclosed in curly brackets, { }
+        Function declarations are hoisted—moved in their entirety to the beginning of the current scope.</br>
+        It consists of the function keyword, followed by the name of the function (optional, see bellow),</br>
+        list of arguments to the function, enclosed in parentheses and separated by commas and statements</br>
+        that define the function, enclosed in curly brackets, { }
       </h3></br>
       <div>With name:
-        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 function add(a, b) {
   return a + b;
 }
@@ -377,7 +398,7 @@ show(result);
         </textarea>
       </div>
       <div>No name:
-        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var add = function(a, b) {
   return a + b;
 }
@@ -386,7 +407,7 @@ show(result);
         </textarea>
       </div>      
       <div>Anonymous:
-        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var add = function(a, b) {
   return function() {
     return a + b;
@@ -419,7 +440,7 @@ show(result);
         <li><h4>toString -- Returns the source of the function as a string</h4></li>
       </ul>
       <div>
-        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 function logArrayElements(element, index, array) {
     show("a[" + index + "] = " + element);
 }
@@ -440,7 +461,7 @@ props.forEach(logArrayElements);
       </h3>
       </br>
       <div>
-        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var makeCounter = function() {
   var privateCounter = 0;
   function changeBy(val) {
@@ -547,7 +568,8 @@ show(counter2.value());
     <section class="slide" id="textarea-code">
       <h2>Why Functional?</h2>
       <h3>"Functional programming isn't the goal. The goal is to simplify the complicated."
-        Although it’s possible to write good code using techniques from functional programming, it’s also possible to write bad code. </h3>
+        Important: although it’s possible to write good code using techniques from functional programming, it’s also possible to write bad code. </h3>
+      <h3>Benefit of adopting a functional style is that programs can be broken down into smaller pieces that are both more reliable and easier to understand.</h3>
       </br>
       <div class="zerogrid">
         <div class="row">
@@ -571,13 +593,81 @@ show(counter2.value());
         </div>
       </div>  
       </br>
-      <h3>but...</h3>
     </section>
 
     <section class="slide" id="textarea-code">
-      <h2>Don't be too busy... It is worth it :)</h2>
-      <h3>For most of us, the real benefit of adopting a functional style is that our programs can be broken down into smaller, simpler pieces that are both more reliable and easier to understand.</h3>
+      <h2>Why Functional?</h2>
+      <h3>... who has time to learn new stuff (all the time)?</h3>
       <img src="./img/no-thanks-were-too-busy.jpg" />
+    </section>
+
+   <section class="slide" id="textarea-code">
+      <h2>Why Functional? - Motivating example...</h2>
+      <h3>Using Procedural programming approach</h3>
+      <div>
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var words = ["bla", "muu", "tatta"];
+
+function firstTwoChars(words) {
+    var result = [];
+    for (var i = 0; i < words.length; i++) {
+        var arr = [];
+        arr.push(first(2, words[i]));
+        result.push(arr);
+    }
+    return result;
+}
+
+show(firstTwoChars(words));     
+        </textarea>
+      </div>
+    </section>
+
+   <section class="slide" id="textarea-code">
+      <h2>Why Functional? - Motivating example...</h2>
+      <h3>Using underscore</h3>
+      <div>
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" globals="_" runnable="true">
+var words = ["bla", "muu", "tatta"];
+
+function firstTwoChars(words) {
+    return _.map(words, function(word) {
+        return _.first(word, 2);
+    });
+}
+
+show(firstTwoChars(words));
+        </textarea>
+      </div>
+    </section>
+
+   <section class="slide" id="textarea-code">
+      <h2>Why Functional? - Motivating example...</h2>
+      <h3>Using functional all the way</h3>
+      <div>
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+          function firstTwoChars(words) {
+               return _.map(words, function(word) {
+                   return _.first(word, 2);
+               });
+           }
+          
+          //-> step 1
+          var firstTwoChars-1 = function (words) {
+              return _.map(words, _.first(2)); //-> inverted order of _.first args to _.first(num, word) 
+          }
+
+          //-> step 2
+          var firstTwoChars-2 = _.map(_.first(2)); //-> inverted order of _.map args to _.map(function, colection) 
+        </textarea>
+      </div>
+      <div>
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var words = ["bla", "muu", "tatta"];
+
+show(map(first(2), words)); 
+        </textarea>
+      </div>
     </section>
 
     <section class="slide" id="textarea-spec">
@@ -609,11 +699,13 @@ show(counter2.value());
       <img src="./img/Function-as-a-box.jpg" />
       </br></br>
       <div>
-        <textarea id="code" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
-var f = function(name) {
-  return "Hello there " + name;
-}
-show(f("Joe!"));
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+// Pure function:
+function pure(x) {return x;}
+
+// Not a pure function:
+var a = 0;
+function impure(b) {return a + b};
         </textarea>
       </div>
       <ul>
@@ -624,8 +716,25 @@ show(f("Joe!"));
 
     <section class="slide" id="textarea-code">
       <h2>Functional Programming Techniques - Higher Order Functions</h2>
-
-    </section>
+      <h3>A higher-order function is a function that works with functions, they either take them as arguments, or return them.</h3>
+      <h3></h3>
+      <div>
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var total = 0, count = 1;
+while (count <= 10) {
+  total += count;
+  count += 1;
+}
+show(total);
+        </textarea>
+      </div>
+      <h3>vs</h3>
+      <div>
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var total = sum(range(1, 10));
+show(total);
+        </textarea>
+      </div>    </section>
 
     <section class="slide" id="textarea-code">
       <h2>Functional Programming Techniques - Composition/Combinators</h2>
@@ -649,11 +758,6 @@ show(f("Joe!"));
 
     <section class="slide" id="textarea-code">
       <h2>Functional Programming Techniques - Example: Reduce</h2>
-
-    </section>
-
-    <section class="slide" id="textarea-code">
-      <h2>Functional Programming Techniques - Canonical Example</h2>
 
     </section>
 
@@ -745,35 +849,6 @@ var someVar = 15;
       </code>
       <textarea id="code4" name="code" class="code" mode="javascript" style="display: none;" runnable="true" globals="$">// output my log
 console.log($('script').size());</textarea>
-		</section>
-		
-    <section class="slide" id="textarea-code">
-      <h2>JavaScript Overview - Type System</h2>
-      <h4>In JavaScript, almost everything is an object.</br>
-       Even primitive types, except null and undefined, are treated as objects.</h4></br>
-      <table style="width: 400px;">
-         <tr>
-           <td>
-            <h4>Primitive values</h4>
-            <ul>
-              <li><h4>Number</h4></li>
-              <li><h4>String</h4></li>
-              <li><h4>Boolean</h4></li>
-              <li><h4>Null</h4></li>
-              <li><h4>Undefined</h4></li>
-            </ul>
-           </td>
-           <td>
-            <h4>Objects</h4>
-            <ul>
-              <li><h4>Date</h4></li>
-              <li><h4>Math</h4></li>
-              <li><h4>Array</h4></li>
-              <li><h4>Function</h4></li>
-            </ul>
-           </td>
-         </tr>
-       </table> 
     </section-->
 
     <form name="Tick">
@@ -795,7 +870,9 @@ console.log($('script').size());</textarea>
 		<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
 	</article>
 
-	<script src="../lib/jquery-1.6.1.js"></script>
+  <script src="../lib/jquery-2.1.1.js"></script>
+  <script src="../lib/functional-bundle.js"></script>
+  <script src="../../node_modules/underscore/underscore.js"></script>
 
 	<!-- Deck Core and extensions -->
 	<script src="../lib/deck/js/deck.core.js"></script>
