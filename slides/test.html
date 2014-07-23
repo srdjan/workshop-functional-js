@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="./js/functional-req-bundle.js"></script>
+  <script>
+    var map = window.map;
+
+    var first = function(num, word) {
+       if(arguments.length === 1) {
+          return first.bind(undefined, num);
+       }
+       var result = [];
+       if (word.length >= num) {
+           for (var i = 0; i < num; i++) {
+               result.push(word.substring(i, i + 1));
+           }
+       }
+       return result;
+    }
+
+    var res = map(first(2), ["aaa", "bbb"]);
+    alert("res = " + res);
+  </script></head>
+<body>
+
+
+
+</body>
+</html>

@@ -25,12 +25,10 @@
   <link rel="stylesheet" href="./css/zerogrid.css">	
 	
 	<script src="./js/modernizr.custom.js"></script>
+  <script src="./js/functional-req-bundle.js"></script>
 
-  <script type="codemirror" data-selector="#code-log">
-    var show = console.log;
-    var map = window.map;
-
-    var first = function(num, word) {
+  <script>
+      var first = function(num, word) {
        if(arguments.length === 1) {
           return first.bind(undefined, num);
        }
@@ -42,6 +40,10 @@
        }
        return result;
     }
+  </script>
+  
+  <script type="codemirror" data-selector="#code-log">
+      var show = console.log;
   </script>
 </head>
 
@@ -59,21 +61,17 @@
           <div class="col-1-2">
             <div class="wrap-col">
               </br></br></br>
-              <ul>
-                <li><h3>Web site:</h3></li>
-                <li><h3>Twitter:</h3></li>
-                <li><h3>Github:</h3></li>
-              </ul>
+                <img src="./img/home-32.jpg" height="32" width="32"/>
+                <img src="./img/twitter-32.jpg" height="32" width="32"/>
+                <img src="./img/github-Mark-32px.png" height="32" width="32"/>
             </div>
           </div>
           <div class="col-2-2">
             <div class="wrap-col">
-            </br></br></br>
-              <ul>
-                <li><h3><a href="http://srdjan.strbanovic.com">http://srdjan.strbanovic.com</a></h3></li>
-                <li><h3><a href="http://twitter.com/djidja8">@djidja8</a></h3></li>
-                <li><h3><a href="http://github.com/srdjan">@srdjan</a></h3></li>
-              </ul>
+              </br></br></br>
+              <h3><a href="http://srdjan.strbanovic.com">Personal web site</a></h3>
+              <h3><a href="http://twitter.com/djidja8">@djidja8</a></h3>
+              <h3><a href="http://github.com/srdjan">srdjan@github</a></h3>
             </div>
           </div>
         </div>
@@ -623,7 +621,7 @@ show(firstTwoChars(words));
       </div>
     </section>
 
-   <section class="slide" id="textarea-code">
+    <section class="slide" id="textarea-code">
       <h2>Why Functional? - Motivating example...</h2>
       <h3>Using underscore</h3>
       <div>
@@ -641,31 +639,34 @@ show(firstTwoChars(words));
       </div>
     </section>
 
-   <section class="slide" id="textarea-code">
+    <section class="slide" id="textarea-code">
       <h2>Why Functional? - Motivating example...</h2>
       <h3>Using functional all the way</h3>
       <div>
-        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" globals="first,map"  runnable="true">
+var words = ["bla", "muu", "tatta"];
+
+show(map(first(2), words)); 
+        </textarea>
+      </div>
+
+      <div class="slide">
+        <h3>Refactoring:</h3>
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="false">
+          //-> start with underscore implementation:
           function firstTwoChars(words) {
                return _.map(words, function(word) {
                    return _.first(word, 2);
                });
            }
           
-          //-> step 1
+          //-> step 1: invert order of function's _.first() args to _.first(num, word)
           var firstTwoChars-1 = function (words) {
-              return _.map(words, _.first(2)); //-> inverted order of _.first args to _.first(num, word) 
+              return _.map(words, _.first(2));  
           }
 
-          //-> step 2
-          var firstTwoChars-2 = _.map(_.first(2)); //-> inverted order of _.map args to _.map(function, colection) 
-        </textarea>
-      </div>
-      <div>
-        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
-var words = ["bla", "muu", "tatta"];
-
-show(map(first(2), words)); 
+          //-> step 2: inverted order of _.map args to _.map(function, colection)
+          var firstTwoChars-2 = _.map(_.first(2));  
         </textarea>
       </div>
     </section>
@@ -682,14 +683,18 @@ show(map(first(2), words));
         <li><h4>Anonymous functions</li></h4>
         <li><h4>Closuress</li></h4>
       </ul>
-      <h3>Not directly supported:</h3>
+      <h3>Not directly supported, but possible:</h3>
       <ul>
         <li><h4>Pure functions</li></h4>
         <li><h4>Immutability</li></h4>
         <li><h4>No Side Effects</li></h4>
         <li><h4>Currying/Partial Application</li></h4> 
-        <li><h4>Mandatory function result return (implicitly returns 'undefined' if missing return statements)</li></h4>
-        <li><h4>Tail recursive functions</li></h4>
+      </ul>
+      <h3>Not available in current versions Javascript</h3>
+      <ul>
+        <li class="slide">Recursion through tail call optimization</li>
+        <li class="slide">Pattern matching</li>
+        <li class="slide">Lazy Evaluation</li>
       </ul>
     </section>
 
@@ -737,15 +742,46 @@ show(total);
       </div>    </section>
 
     <section class="slide" id="textarea-code">
-      <h2>Functional Programming Techniques - Composition/Combinators</h2>
- 
-    </section>
-
-    <section class="slide" id="textarea-code">
       <h2>Functional Programming Techniques - Currying/Partial Application</h2>
-
+      <h3>"A function that will return a new function until it receives all it's arguments"</h3>
+      <h3>Currying Enables:</h3>
+      <ul>
+        <li><h4>Making generic functions</li></h4>
+        <li><h4>Bbuilding new functions by applying arguments</li></h4>
+        <li><h4>Better granularity of functions</li></h4>
+        <li><h4>Helps composition</li></h4> 
+      </ul>
+      <h3>Curried functions allow Partial Application</h3>
     </section>
     
+    <section class="slide" id="textarea-code">
+      <h2>Functional Programming Techniques - Composition/Combinators</h2>
+      <h3>Using functions as building blocks to make new functions</h3>
+      <script type="codemirror" data-selector="#example1">
+        var compose = function(f, g) {
+            return function() {
+                return f.call(this, g.apply(this, arguments));
+            };
+        };
+      </script>
+      <div>
+        <textarea id="example1" name="example1" class="code" mode="javascript" style="display: none;" runnable="true">// Simple compose
+var trim = function(str) {return str.replace(/^\s*|\s*$/g, '');};
+var capitalize = function(str) {return str.toUpperCase();};
+
+var convert = compose(trim, capitalize);
+
+console.log('"' + convert('   abc def ghi  ') + '"');
+        </textarea>
+      </div>
+    <div class="slide">
+        <br/>
+        <h3>Techniques</h3>
+        <p>There are many ways to create <code>compose</code> functions.  We'll examine a few of them.</p>
+        <p>We will glance at the implementations, but mostly focus on the APIs presented by these techniques.</p>
+    </div>      
+    </section>
+
     <section class="slide" id="textarea-code">
       <h2>Functional Programming Techniques - Example: Filter</h2>
 
@@ -761,95 +797,37 @@ show(total);
 
     </section>
 
-    <section class="slide" id="textarea-code">
-      <h2>Credits and resources</h2>
-      <h3>Inspired by the work of many other people I have learned from</h3>
-      </br>
-        <li><h4>Brian Lansdorf: Hey Underscore, You're doing it wrong</h4></li>
-        <li><h4>Functional JavaScript by Oliver Steele</h4></li>
-        <li><h4>Reginald Braithwaite and allong.es</h4></li>
-        <li><h4>https://github.com/timoxley/functional-javascript-workshop</h4></li>
-        <li><h4>Original Deck / CodeMirror integration by Irene Ros:</br>
-        <a href="https://github.com/iros/deck.js-codemirror">https://github.com/iros/deck.js-codemirror</a></h4>
-        <li><h4>This workshop's repo:</br>
-        <a href="https://github.com/srdjan/workshop-functional-js">https://github.com/srdjan/workshop-functional-js</a></h4>
-      </ul></br></br>
-      <h3>Thank you!</h3>
-    </section>
-<!-- 
-		<section class="slide" id="textarea-spec">
-			<h2> That code was created with a text area that had the following attributes: </h2>
-			<ul>
-				<li>class - "code"</li>
-				<li>mode  - "javascript"</li>
-				<li>runnable - "true" </li>
-			</ul>
-			<h3> The rest just HAPPENS </h3>
-			<p> Code blocks aren't runnable by default. Because you might want to put crazy non runnable code in there. Like, html. </p>
-			<p> You can specify a codemirror theme as long as you include the stylesheet for it by setting the <i>theme</i> attribute </p>
-		</section>
-
-    <section class="slide" id="hidden-script-tags">
-			<h2> Need to run some setup for your codes? </h2>
-			<h3> Embed a secret hidden script tag like so in your slide: </h3>
-			
-			<script type="codemirror" data-selector="#code4">
-			  var someVar = 10;
-			</script>
-			
-      <code>
-&lt;script type=&quot;codemirror&quot; data-selector=&quot;#code3&quot;&gt;<br/>
-  var someVar = 10;<br/>
-&lt;/script&gt;<br/>
-  		</code>
-  		
-  		<h3> Then your code </h3>
-			<div><textarea id="code4" name="code" class="code" mode="javascript" style="display: none;" runnable="true">// output my log
-show(someVar);</textarea></div>
-    </section>
-    
-    <section class="slide" id="cleanup-script-tags">
-			<h2> Need to run some cleanup for your codes? </h2>
-			<h3> Embed a secret hidden cleanup script tag like so in your slide: </h3>
-			
-			<script type="codemirror/cleanup" data-selector="#code4">
-			  someVar = 12;
-			  show(someVar);
-			</script>
-			
-      <code>
-&lt;script type=&quot;codemirror/cleanup&quot; data-selector=&quot;#code3&quot;&gt;<br/>
-  someVar = 12;
-  show(someVar);<br/>
-&lt;/script&gt;<br/>
-  		</code>
-  		
-  		<h3> Then your code </h3>
-			<div><textarea id="code4" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
-// set some initial value
-var someVar = 15;
-</textarea></div>
+    <section class="slide">
+        <h2>Questions?</h2>
     </section>
 
-    <section class="slide" id="globals">
-			<h2> Sometimes you need some globals </h2>
-			<p> 
-			  Sometimes you just need to access a global of some kind. The code in the codemirror 
-			  editors is executed in a sandbox, which means whatever it is you load in your actual 
-			  slides, is NOT going to be available by default.
-			</p>
-			<p>
-        To give access to, for example, jQuery object, define a "globals" attribute on the code blocks with 
-        the names of the vars you need.
-      </p>
-      
-      <code>
-&lt;textarea id=&quot;code4&quot; name=&quot;code&quot; class=&quot;code&quot; mode=&quot;javascript&quot; style=&quot;display: none;&quot; runnable=&quot;true&quot; globals=&quot;$&quot;&gt;<br />  // output my log
-  Su($(&#39;script&#39;).size());<br />&lt;/textarea&gt;<br />
-      </code>
-      <textarea id="code4" name="code" class="code" mode="javascript" style="display: none;" runnable="true" globals="$">// output my log
-console.log($('script').size());</textarea>
-    </section-->
+    <section class="slide">
+      <h2>Resources</h2>
+      <h3>
+        <ul>
+          <li>Javascript Functional (and not so functional) Programming Libraries:
+            <ul>
+              <li>allong.es: <a href="http://allong.es/">http://allong.es/</a></li>
+              <li>Ramda: <a href="https://github.com/CrossEye/ramda">https://github.com/CrossEye/ramda</a></li>
+              <li>LambdaJs: <a href="https://github.com/loop-recur/lambdajs/">https://github.com/loop-recur/lambdajs/</a></li>
+              <li>Falktale: <a href="http://folktale.github.io/">http://folktale.github.io/</a></li>
+              <li>Underscore: <a href="http://underscorejs.org/">http://underscorejs.org/</a></li>
+              <li>Lo-Dash: <a href="http://lodash.com/">http://lodash.com/</a></li>
+            </ul>
+          </li>
+          <li>Books on Functional Programming
+            <ul>
+              <li><a href="http://mitpress.mit.edu/books/little-schemer">The Little Schemer</a>, Daniel P. Friedman and Mattias Felleisen</li>
+              <li><a href="http://mitpress.mit.edu/sicp/">Structure and Interpretation of Computer Programs</a>, Harold Abelson, and Gerald Sussman with Julie Sussman</li>
+              <li><a href="http://learnyouahaskell.com/">Learn You a Haskell for Great Good</a>, Miran Lipova&#269;a,</li>
+            </ul>
+          </li>
+          <li>This presentation: <a href="https://github.com/srdjan/workshop-functional-js">Functional Javascript/</a></li>
+          <li>Original Deck / CodeMirror integration by Irene Ros: <a href="https://github.com/iros/deck.js-codemirror">deck.js-codemirror</a></li>
+          <li>This workshop's repo: <a href="https://github.com/srdjan/workshop-functional-js">github.com/srdjan/workshop-functional-js</a></li>
+        </ul>
+      </h3>
+    </section>
 
     <form name="Tick">
       <input type="text" name="Clock" class="deck-status">
@@ -871,8 +849,7 @@ console.log($('script').size());</textarea>
 	</article>
 
   <script src="../lib/jquery-2.1.1.js"></script>
-  <script src="../lib/functional-bundle.js"></script>
-  <script src="../../node_modules/underscore/underscore.js"></script>
+  <script src="../node_modules/underscore/underscore.js"></script>
 
 	<!-- Deck Core and extensions -->
 	<script src="../lib/deck/js/deck.core.js"></script>

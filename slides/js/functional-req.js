@@ -1,0 +1,1 @@
+require('functionaljs').expose(window);
