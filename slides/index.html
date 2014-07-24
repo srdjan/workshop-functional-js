@@ -152,6 +152,18 @@
 
     <section class="slide" id="textarea-code">
       <h2>JavaScript Overview - Type System</h2>
+      <h3>Guess what will the result be?</h3>
+      <div>
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var a = 5 + "5";
+show(a);    //-> error? 10? 
+
+show(typeof a); //-> what will the result's type be?
+
+       </textarea>
+      </div>        
+
+      <h3>more samples...</h3>
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 function f(){}
@@ -467,6 +479,33 @@ show(counter2.value());
       </div>
     </section>
 
+    <section class="slide">
+      <h2>JavaScript Overview</h2>
+      <div class="zerogrid">
+        <div class="row">
+          <div class="col-1-3">
+            <div class="wrap-col">
+              </br></br></br>
+              <ul>
+                <li><h3>Type System</h3></li>
+                <li><h3>Primitive Values</h3></li>
+                <li><h3>Objects</h3></li>
+                <li><h3>Inheritance</h3></li>
+                <li><h3>Functions</h3></li>
+                <li><h3>Closures</h3></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-2-3">
+            <div class="wrap-col">
+            </br></br></br>
+              <img src="./img/question-mark.jpg" alt=""/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="slide" id="codemirror-intro">
       <h1>Functional Programming Overview</h1>
     </section>
@@ -481,11 +520,7 @@ show(counter2.value());
             <ul>
               <li><h3>What is functional programming?</h3></li>
               <li><h3>Why Functional?</h3></li>
-              <li><h3>JavaScript and Functional programming</h3></li>
-              <li><h3>Pure Function</h3></li>
-              <li><h3>Higher Order Functions</h3></li>
-              <li><h3>Composition/Combinators</h3></li>
-              <li><h3>Currying/Partial Application</h3></li>
+              <li><h3>A motivating example(?)</h3></li>
             </ul>
           </div>
         </div>
@@ -620,12 +655,73 @@ show(map(first(2), words));
       </div>
     </section>
 
+    <section class="slide">
+      <h2>Functional Programming Overview</h2>
+      <div class="zerogrid">
+        <div class="row">
+          <div class="col-1-3">
+            <div class="wrap-col">
+              </br></br></br>
+              <ul>
+              <li><h3>What is functional programming?</h3></li>
+              <li><h3>Why Functional?</h3></li>
+              <li><h3>A motivating example(?)</h3></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-2-3">
+            <div class="wrap-col">
+            </br></br></br>
+               <img src="./img/question-mark.jpg" alt=""/>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section class="slide" id="codemirror-intro">
-      <h1>JavaScript and Functional programming</h1>
+      <h1>Functional Programming Techniques with JavaScript</h1>
+    </section>
+
+    <section class="slide" id="textarea-code">
+      <h2>Functional Programming Techniques with JavaScript</h2>
+      </br></br>
+      <div class="zerogrid">
+        <div class="row">
+        <div class="col-1-3">
+          <div class="wrap-col">
+            <ul>
+              <li><h3>JavaScript as a functional proggraming language</h3></li>
+              <li><h3>Pure Function</h3></li>
+              <li><h3>Higher Order Functions</h3></li>
+              <li><h3>Composition</h3></li>
+              <li><h3>Combinators</h3></li>
+              <li><h3>Currying/Partial Application</h3></li>
+              <li><h3>Filter</h3></li>
+              <li><h3>Map</h3></li>
+              <li><h3>Reduce</h3></li>
+              <li><h3>Try it out yourslef...</h3></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-2-3">
+          <div class="wrap-col">
+          </br></br></br>
+              <img src="./img/js-logo.jpg" alt="">
+          </div>
+        </div>
+        <div class="col-3-3">
+          <div class="wrap-col">
+            </br></br></br>
+            <img src="./img/fn-logo.jpg" alt="">
+          </div>
+        </div>
+        </div>
+      </div>    
     </section>
 
     <section class="slide" id="textarea-spec">
-      <h2>JavaScript and Functional programming</h2>
+      <h2>Functional Programming Techniques with JavaScript</h2>
       <h3>JavaScript allows a variety of different programming paradigms: OO, functional, procedural</h3>
       <h4>Although not a pure functional programming language, it allows one to program in a functional way.</h4>
       </br>
@@ -646,7 +742,7 @@ show(map(first(2), words));
     </section>
 
     <section class="slide" id="textarea-spec">
-      <h2>JavaScript and Functional programming</h2>
+      <h2>Functional Programming Techniques with JavaScript</h2>
       <h3>JavaScript allows a variety of different programming paradigms: OO, functional, procedural</h3>
       <h4>Although not a pure functional programming language, it allows one to program in a functional way.</h4>
       </br>
@@ -656,10 +752,6 @@ show(map(first(2), words));
         <li><h4>Pattern matching</h4></li>
         <li><h4>Lazy Evaluation</h4></li>
       </ul>
-    </section>
-
-    <section class="slide" id="codemirror-intro">
-      <h1>Functional Programming Techniques</h1>
     </section>
 
     <section class="slide" id="textarea-code">
@@ -996,6 +1088,37 @@ show(sum([1, 2, 3, 4, 5]));
       <h2>Functional Programming Techniques - try it out yourslef...</h2>
       <img src="./img/functional-js-workshop.png" alt="">
       <p><a href="https://github.com/timoxley/functional-javascript-workshop/" target="_blank">timoxley: functional-javascript-workshop</a></p>
+    </section>
+
+    <section class="slide">
+      <h2>Functional Programming Techniques with JavaScript</h2>
+      <div class="zerogrid">
+        <div class="row">
+          <div class="col-1-3">
+            <div class="wrap-col">
+              </br></br></br>
+              <ul>
+              <li><h3>JavaScript as functional a proggraming language</h3></li>
+              <li><h3>Pure Function</h3></li>
+              <li><h3>Higher Order Functions</h3></li>
+              <li><h3>Composition</h3></li>
+              <li><h3>Combinators</h3></li>
+              <li><h3>Currying/Partial Application</h3></li>
+              <li><h3>Filter</h3></li>
+              <li><h3>Map</h3></li>
+              <li><h3>Reduce</h3></li>
+              <li><h3>Try it out yourslef...</h3></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-2-3">
+            <div class="wrap-col">
+            </br></br></br>
+               <img src="./img/question-mark.jpg" alt=""/>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="slide">
