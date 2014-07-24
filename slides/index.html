@@ -81,6 +81,10 @@
       <h3>Please ask questions anytime...</h3>
     </section>
 
+    <section class="slide" id="codemirror-intro">
+      <h1>JavaScript Overview</h1>
+    </section>
+
     <section class="slide" id="textarea-code">
       <h2>JavaScript Overview</h2>
       </br></br>
@@ -366,7 +370,7 @@ var result = add(1, 3);
 show(result); 
         </textarea>
       </div>
-      <h4>Without the nane, assigned to a variable</h4>
+      <h4>Without the name, assigned to a variable</h4>
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var add = function(a, b) {
@@ -376,7 +380,7 @@ var result = add(1, 3);
 show(result); 
         </textarea>
       </div>      
-      <h4>Without the nane, used as anonymous function</h4>
+      <h4>Without the name, used as anonymous function</h4>
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var add = function(a, b) {
@@ -463,6 +467,10 @@ show(counter2.value());
       </div>
     </section>
 
+    <section class="slide" id="codemirror-intro">
+      <h1>Functional Programming Overview</h1>
+    </section>
+
     <section class="slide" id="textarea-code">
       <h2>Functional Programming Overview</h2>
       </br></br>
@@ -492,24 +500,24 @@ show(counter2.value());
     </section>
 
     <section class="slide" id="textarea-code">
-      <h2> What is functional programming</h2>
+      <h2>Functional Programming Overview - What is functional programming</h2>
       <ul>
         <li>
-          <h4>First Class Functions: functions can be stored in variables, passed as arguments to functions, created within functions and returned from functions</h4>
+          <h4>First Class Functions: stored in variables, passed as arguments to functions, created within functions and returned from functions</h4>
         </li>
         <li>
-          <h4>Higher Order Functions: a higher-order function is a function that can accept functions as arguments, and/or can return a function.</h4>
+          <h4>Higher Order Functions: a function that can accept functions as arguments, and/or can return a function.</h4>
         </li>
         <li>
-          <h4>Anonymous Functions: anonymous function is a function that was declared without any named identifier to refer to it. The most common use is as arguments to other functions, or as a closure.</h4>
+          <h4>Anonymous Functions: a function that was declared without any named identifier to refer to it. The most common use is as arguments to other functions, or as a closure.</h4>
         </li>
         <li>
-          <h4>No Side Effects: function should do one thing. Any function that does something other than its single intended purpose is said to have side effects.</br>
+          <h4>No Side Effects: function should do one thing. Any function that does something other than returning the result is said to have side effects.</br>
         </h4>
         </li>
         <li>
-          <h4>Referential Transparency: the same code should always output the same</br>
-            value for a given set of arguments, and only changing those arguments can a output value be different.</h4>
+          <h4>Referential Transparency: for a given set of arguments, the same code should always output the same</br>
+            value, and only changing those arguments can a output value be different.</h4>
         </li>
         <li>
           <h4>Immutability: inability for variables to change their values once created. In other words, all things created stay constant.</br>
@@ -521,13 +529,13 @@ show(counter2.value());
         </h4>
         </li>
         <li>
-          <h4>Recursion / Tail Call Optimization: ability to avoid allocating a new stack frame for a function call because.The most common use is tail-recursion, where a recursive function written to take advantage of tail-call</br> optimization can use constant stack space.</h4>
+          <h4>Tail Call Optimization: ability to avoid allocating a new stack frame for a function call. The most common use is tail-recursion, where a recursive function uses constant stack space.</h4>
         </li>
       </ul>
     </section>
 
     <section class="slide" id="textarea-code">
-      <h2>Why Functional?</h2>
+      <h2>Functional Programming Overview - Why Functional?</h2>
       <h3>"Functional programming isn't the goal. The goal is to simplify the complicated."</h3>
       <div class="zerogrid">
         <div class="row">
@@ -551,13 +559,13 @@ show(counter2.value());
     </section>
 
     <section class="slide" id="textarea-code">
-      <h2>Why Functional?</h2>
+      <h2>Functional Programming Overview - Why Functional?</h2>
       <h3>... but who has time to learn new stuff (all the time)?</h3>
       <img src="./img/no-thanks-were-too-busy.jpg" />
     </section>
 
    <section class="slide" id="textarea-code">
-      <h2>Why Functional? - Motivating example...</h2>
+      <h2>Functional Programming Overview - Motivating example?</h2>
       <h3>Using Procedural programming approach</h3>
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" globals="first" runnable="true">
@@ -579,7 +587,7 @@ show(firstTwoChars(words));
     </section>
 
     <section class="slide" id="textarea-code">
-      <h2>Why Functional? - Motivating example...</h2>
+      <h2>Functional Programming Overview - Motivating example?</h2>
       <h3>Using underscore</h3>
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" globals="_" runnable="true">
@@ -597,7 +605,7 @@ show(firstTwoChars(words));
     </section>
 
     <section class="slide" id="textarea-code">
-      <h2>Why Functional? - Motivating example...</h2>
+      <h2>Functional Programming Overview - Motivating example?</h2>
       <h3>Using functional all the way</h3>
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" globals="first,map"  runnable="true">
@@ -608,24 +616,12 @@ show(map(first(2), words));
       </div>
 
       <div class="slide">
-        <h3>Refactoring:</h3>
-        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="false">
-          //-> start with underscore implementation:
-          function firstTwoChars(words) {
-               return _.map(words, function(word) {
-                   return _.first(word, 2);
-               });
-           }
-          
-          //-> step 1: invert order of function's _.first() args to _.first(num, word)
-          var firstTwoChars-1 = function (words) {
-              return _.map(words, _.first(2));  
-          }
-
-          //-> step 2: inverted order of _.map args to _.map(function, colection)
-          var firstTwoChars-2 = _.map(_.first(2));  
-        </textarea>
+        <h3>We'll do the refactoring to this code in a couple of minutes...</h3>
       </div>
+    </section>
+
+    <section class="slide" id="codemirror-intro">
+      <h1>JavaScript and Functional programming</h1>
     </section>
 
     <section class="slide" id="textarea-spec">
@@ -660,6 +656,10 @@ show(map(first(2), words));
         <li><h4>Pattern matching</h4></li>
         <li><h4>Lazy Evaluation</h4></li>
       </ul>
+    </section>
+
+    <section class="slide" id="codemirror-intro">
+      <h1>Functional Programming Techniques</h1>
     </section>
 
     <section class="slide" id="textarea-code">
@@ -769,10 +769,9 @@ show(toUpper2("abc   def ghi"));
       </br>
       <h4>Some Examples:</a></h4>
       <ul>
-        <li><h4>get</li></h4>
         <li><h4>splat</li></h4>
+        <li><h4>get</li></h4>
         <li><h4>pluck</li></h4>
-        <li><h4>maybe</li></h4> 
       </ul>
       <a target="_blank" href="https://github.com/raganwald-deprecated/homoiconic/blob/master/2012/12/combinators_1.md">Combinator Recipes for Working With Objects in JavaScript</a>
     </section>
@@ -864,6 +863,12 @@ show(splat(function (inventory) { return inventory.oranges; }) (inventories));
         }
         
         var show = console.log;
+        
+        var inventories = [
+          { apples: 0, oranges: 144, eggs: 36 },
+          { apples: 240, oranges: 54, eggs: 12 },
+          { apples: 24, oranges: 12, eggs: 42 }
+        ];
       </script>
       <div>
         <textarea id="code-pluck" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
@@ -883,52 +888,6 @@ show(pluck('eggs')(inventories));
       </div>
     </section>
 
-<!--     <section class="slide" id="textarea-code">
-      <h2>Functional Programming Techniques - Combinators</h2>
-      <h3>'maybe' combinator: checking for null or undefined, and its behaviour by design is to do nothing if the parameter is null or nothing:</h3>
-      </br>
-      <script type="codemirror" data-selector="#code-maybe">
-        function splat(fn) {
-          return function (list) {
-            return Array.prototype.map.call(list, fn)
-          }
-        }
-        function get(attr) {
-          return function (object) { return object[attr]; }
-        }
-        
-        var show = console.log;
-      </script>
-      <div>
-        <textarea id="code-maybe" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
-function maybe (fn) {
-  return function () {
-    var i;
-
-    if (arguments.length === 0) {
-      return;
-    }
-    else {
-      for (i = 0; i < arguments.length; ++i) {
-        if (arguments[i] == null) return arguments[i];
-      }
-      return fn.apply(this, arguments);
-    }
-  }
-}
-
-//-> Example usage:
-var inventories = [
-  { apples: 0, oranges: 144, eggs: 36 },
-  { apples: 240, eggs: 12 },
-  { apples: 24, oranges: 12, eggs: 42 }
-];
-
-show(splat( maybe( get('oranges'))) (inventories));
-        </textarea>
-      </div>
-    </section>
- -->
     <section class="slide" id="textarea-code">
       <h2>Functional Programming Techniques - Currying/Partial Application</h2>
       <h3>"A function that will return a new function until it receives all it's arguments"</h3>
@@ -939,7 +898,31 @@ show(splat( maybe( get('oranges'))) (inventories));
         <li><h4>Better granularity of functions</li></h4>
         <li><h4>Helps composition</li></h4> 
       </ul>
-      <h3>Curried functions allow Partial Application</h3>
+      <h3>Curried functions enables Partial Application</h3>
+    </section>
+
+    <section class="slide" id="textarea-code">
+      <h2>Functional Programming Techniques - Currying/Partial Application</h2>
+      <h3>"A function that will return a new function until it receives all it's arguments"</h3>
+      <h3>Refactoring using currying...</h3>
+      <div>
+        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" globals="_" runnable="false">
+//-> start with underscore implementation:
+function firstTwoChars(words) {
+     return _.map(words, function(word) {
+         return _.first(word, 2);
+     });
+ }
+
+//-> step 1: invert order of function's _.first() args to _.first(num, word)
+var firstTwoChars-1 = function (words) {
+    return _.map(words, _.first(2));  
+}
+
+//-> step 2: inverted order of _.map args to _.map(function, colection)
+var firstTwoChars-2 = _.map(_.first(2));  
+        </textarea>
+      </div>    
     </section>
 
     <section class="slide" id="textarea-code">
@@ -1010,12 +993,14 @@ show(sum([1, 2, 3, 4, 5]));
     </section>
 
     <section class="slide">
-        <h2>Questions?</h2>
+      <h2>Functional Programming Techniques - try it out yourslef...</h2>
+      <img src="./img/functional-js-workshop.png" alt="">
+      <p><a href="https://github.com/timoxley/functional-javascript-workshop/" target="_blank">timoxley: functional-javascript-workshop</a></p>
     </section>
 
     <section class="slide">
       <h2>Resources</h2>
-      <h3>
+      <h4>
         <ul>
           <li>Javascript Functional (and not so functional) Programming Libraries:
             <ul>
@@ -1037,7 +1022,12 @@ show(sum([1, 2, 3, 4, 5]));
           <li>This presentation: <a href="https://github.com/srdjan/workshop-functional-js">Functional Javascript/</a></li>
           <li>Original Deck/CodeMirror plugin by Irene Ros: <a href="https://github.com/iros/deck.js-codemirror">deck.js-codemirror</a></li>
         </ul>
-      </h3>
+      </h4>
+    </section>
+
+    <section class="slide">
+      <h2> Functional Javascript Design Patterns </h2>
+      <img src="./img/question-mark.jpg" alt=""/>
     </section>
 
     <form name="Tick">
