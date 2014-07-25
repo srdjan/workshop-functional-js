@@ -13,6 +13,19 @@ function showTime() {
     setTimeout("showTime()", 1000);
 }
 
+var first = function(num, word) {
+    if(arguments.length === 1) {
+      return first.bind(undefined, num);
+    }
+    var result = [];
+    if (word.length >= num) {
+       for (var i = 0; i < num; i++) {
+           result.push(word.substring(i, i + 1));
+       }
+    }
+    return result;
+}
+
 $(function() {
     // Deck initialization
     $.deck('.slide');
