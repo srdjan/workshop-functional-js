@@ -36,6 +36,7 @@
 	<article class="deck-container">
     <section class="slide" id="codemirror-intro">
       <h1> Functional Javascript Design Patterns </h1>
+      <h2><img src="./img/right-arrow.jpg" alt=""></h3>
     </section>
 
     <section class="slide" id="textarea-code">
@@ -61,9 +62,6 @@
           </div>
         </div>
       </div>
-      </br></br> </br></br> </br></br>
-      </br></br> </br></br>
-      <h3>...feel free to ask questions anytime...</h3>
     </section>
 
     <section class="slide" id="codemirror-intro">
@@ -171,8 +169,9 @@ show(Object instanceof Function); //-> since Object is a (ctor) function
             <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var a = 10;        
 show(a);
+var b = a;
 a = 11;
-show(a);
+show(b);
             </textarea>
         </div>        
         <li><h4>Compared by value, they don’t have individual identities</h4></li>
@@ -1114,14 +1113,6 @@ show(sum([1, 2, 3, 4, 5]));
 			/
 			<span class="deck-status-total"></span>
 		</p>
-
-<!-- 		<form action="." method="get" class="goto-form">
-			<label for="goto-slide">Go to slide:</label>
-			<input type="number" name="slidenum" id="goto-slide">
-			<input type="submit" value="Go">
-		</form>
- -->
-		<a href="." title="Permalink to this slide" class="deck-permalink">#</a>
 	</article>
 
   <script src="./lib/jquery-2.1.1.js"></script>
