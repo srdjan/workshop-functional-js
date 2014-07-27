@@ -75,7 +75,7 @@
 
     <section class="slide" id="textarea-code">
       <h2>1. JavaScript Overview - Type System</h2>
-      <h3>Javascript has dynamic and loosly typed type system with two main types: primitive values and objects</h3>
+      <h3>Javascript has dynamic and loosely typed type system with two main types:</h3>
       <h3>Primitive (value) types:</h3>
       <ul>
         <li><h3>number</h3></li>
@@ -225,7 +225,7 @@ show(s2);
     <section class="slide" id="textarea-code">
       <h2>1. JavaScript Overview - Inheritance</h2>
       <h3>JavaScript supports a prototype-based inheritance.</h3>
-      <h3>Inheritance is perfomed by creating new objects directly, based on existing ones, existing object is assigned
+      <h3>Inheritance is performed by creating new objects directly, based on existing ones, existing object is assigned
        as the prototype of the new object and then inherited behavior can be changed or new behavior can be added to the
         new object.</h3>
       </h3>
@@ -318,7 +318,7 @@ bob.greet();
 
     <section class="slide" id="textarea-code">
       <h2>1. JavaScript Overview - Functions</h2>
-      <h3>Function declarations are hoisted — moved in their entirety to the beginning of the current scope</h3>
+      <h3>Function declarations *they are hoisted — moved in their entirety to the beginning of the current scope)</h3>
       </br>
       <h3>With name:</h3>
       <div>
@@ -366,12 +366,12 @@ show(result());
         </ul>
         <li><h3>length: The number of arguments the function was expecting</h3></li>
         <li><h3>constructor: function pointer to the constructor function</h3></li>
-        <li><h3>prototype: allows the creation of prototyes</h3></li>
+        <li><h3>prototype: allows the creation of prototypes</h3></li>
       </ul>
       
       <h3>Function object has the following methods:</h3>
       <ul>
-        <li><h3>apply: A method that lets you more easilly pass function arguments</h3></li>
+        <li><h3>apply: A method that lets you more easily pass function arguments</h3></li>
         <li><h3>call: Allows you to call a function within a different context</h3></li>
         <li><h3>bind: creates a new function that, when called, has its 'this' set to the provided value, with a given sequence of arguments preceding any provided when the new function is called</h3></li>
         <li><h3>toString: Returns the source of the function as a string</h3></li>
@@ -594,7 +594,7 @@ show(map(first(2), words));
         <li><h3>Composition, Combinators</h3></li>
         <li><h3>Currying/Partial Application</h3></li>
         <li><h3>Filter, Map, Reduce</h3></li>
-        <li><h3>Try it out yourslef...</h3></li>
+        <li><h3>Try it out yourself...</h3></li>
       </ul>
       <img src="./img/fn-logo.jpg" alt="">
     </section>
@@ -861,15 +861,13 @@ show(pluck('eggs')(inventories));
       <h2>3. Functional Programming Techniques - Currying/Partial Application*</h2>
       <h3>Currying produces a function that will return a new function until it receives all it's arguments</h3>
       <br>
-      <h3>Currying Enables:</h3>
+      <h3>Currying enables Partial Application, and together they help:</h3>
       <ul>
         <li><h3>Making generic functions</li></h3>
         <li><h3>Building new functions by applying arguments</li></h3>
         <li><h3>Better granularity of functions</li></h3>
-        <li><h3>More powerfull function composition</li></h3> 
+        <li><h3>More powerful function composition</li></h3> 
       </ul>
-      <br><br>
-      <h3>*Curried functions enables Partial Application</h3>
     </section>
 
     <section class="slide" id="textarea-code">
@@ -921,8 +919,8 @@ show(_.map([1, 2, 3, 4, 5], function (n) {
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" globals="map" runnable="true">
 show(map(function (n) { 
-  return n*n 
-}), [1, 2, 3, 4, 5]));
+  return n*n; 
+}, [1, 2, 3, 4, 5]));
         </textarea>
       </div>    
     </section>
