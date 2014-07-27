@@ -7,9 +7,9 @@ html {
   height: 100%;
   width: 70%;
   margin: 0 auto;
-  padding: 0 38px;
-  font-size: 12px;
-  line-height: 1.25;
+  padding: 0 30px;
+  font-size: 11px;
+  line-height: 1.1;
   overflow: hidden;
   /* Resets and base styles from HTML5 Boilerplate */
   /* End HTML5 Boilerplate adaptations */
@@ -96,7 +96,7 @@ html {
   outline: none;
 }
 .deck-container ul, .deck-container ol {
-  margin-left: 2em;
+  margin-left: 1em;
   vertical-align: top;
 }
 .deck-container ol {
@@ -108,7 +108,7 @@ html {
   list-style-image: none;
 }
 .deck-container small {
-  font-size: 85%;
+  font-size: 75%;
 }
 .deck-container strong, .deck-container th {
   font-weight: bold;
@@ -180,7 +180,7 @@ html {
   -webkit-tap-highlight-color: #fff;
 }
 .deck-container h1 {
-  font-size: 4.5em;
+  font-size: 3.0em;
   font-weight: bold;
   text-align: center;
   padding-top: 1em;
@@ -198,30 +198,21 @@ html {
   transform: translate3d(0, -50%, 0);
 }
 .deck-container h2 {
-  font-size: 2.25em;
+  font-size: 2.0em;
   font-weight: bold;
   padding-top: .5em;
   margin: 0 0 .66666em 0;
   border-bottom: 3px solid #888;
 }
 .deck-container h3 {
-  font-size: 1.4375em;
+  font-size: 1.2em;
   font-weight: bold;
   margin-bottom: .30435em;
 }
 .deck-container h4 {
-  font-size: 1.25em;
+  font-size: 1.0em;
   font-weight: bold;
   margin-bottom: .25em;
-}
-.deck-container h5 {
-  font-size: 1.125em;
-  font-weight: bold;
-  margin-bottom: .2222em;
-}
-.deck-container h6 {
-  font-size: 1em;
-  font-weight: bold;
 }
 .deck-container img, .deck-container iframe, .deck-container video {
   display: block;

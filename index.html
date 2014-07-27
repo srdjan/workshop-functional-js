@@ -36,7 +36,7 @@
 	<article class="deck-container">
     <section class="slide" id="codemirror-intro">
       <h1> Functional Javascript Design Patterns </h1>
-      <h2><img src="./img/right-arrow.jpg" alt=""></h3>
+      <img src="./img/right-arrow.jpg" height="100" width="100" align="bottom">
     </section>
 
     <section class="slide" id="textarea-code">
@@ -45,76 +45,53 @@
       <div class="zerogrid">
         <div class="row">
           <div class="col-1-2">
-            <div class="wrap-col">
-              </br></br></br>
-                <img src="./img/home-32.jpg" height="32" width="32"/>
-                <img src="./img/twtr-32.jpg" height="32" width="32"/>
-                <img src="./img/githb-32.jpg" height="32" width="32"/>
-            </div>
+            </br></br></br>
+            <img src="./img/home-32.jpg" height="32" width="32"/>
+            <img src="./img/twtr-32.jpg" height="32" width="32"/>
+            <img src="./img/githb-32.jpg" height="32" width="32"/>
           </div>
           <div class="col-2-2">
-            <div class="wrap-col">
-              </br></br></br></br>
-              <h3><a href="http://srdjan.strbanovic.com" target="_blank">web site</a></h3></br>
-              <h3><a href="http://twitter.com/djidja8" target="_blank">@djidja8</a></h3></br>
-              <h3><a href="http://github.com/srdjan" target="_blank">srdjan@github</a></h3></br>
-            </div>
+            </br></br></br></br>
+            <h3><a href="http://srdjan.strbanovic.com" target="_blank">web site</a></h3></br>
+            <h3><a href="http://twitter.com/djidja8" target="_blank">@djidja8</a></h3></br>
+            <h3><a href="http://github.com/srdjan" target="_blank">srdjan@github</a></h3></br>
           </div>
         </div>
       </div>
-    </section>
-
-    <section class="slide" id="codemirror-intro">
-      <h1>1. JavaScript Overview</h1>
     </section>
 
     <section class="slide" id="textarea-code">
       <h2>1. JavaScript Overview</h2>
-      </br></br>
-      <div class="zerogrid">
-        <div class="row">
-          <div class="col-1-3">
-            <div class="wrap-col">
-              </br></br></br>
-              <ul>
-                <li><h3>Type System</h3></li>
-                <li><h3>Primitive Values</h3></li>
-                <li><h3>Objects</h3></li>
-                <li><h3>Inheritance</h3></li>
-                <li><h3>Functions</h3></li>
-                <li><h3>Closures</h3></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-2-3">
-            <div class="wrap-col">
-            </br></br></br>
-            <img src="./img/js-logo.jpg" alt="">
-            </div>
-          </div>
-        </div>
-      </div>
+      <img src="./img/js-logo.jpg" alt="">
+      <ul>
+        <li><h3>Type System</h3></li>
+        <li><h3>Primitive Values</h3></li>
+        <li><h3>Objects</h3></li>
+        <li><h3>Inheritance</h3></li>
+        <li><h3>Functions</h3></li>
+        <li><h3>Closures</h3></li>
+      </ul>
     </section>
 
     <section class="slide" id="textarea-code">
       <h2>1. JavaScript Overview - Type System</h2>
-      <h3>Javascript has dynamic and loosly typed type system with two main types: primitive values and objects.</h3>
-      <h4>Primitive (value) types:</h4>
+      <h3>Javascript has dynamic and loosly typed type system with two main types: primitive values and objects</h3>
+      <h3>Primitive (value) types:</h3>
       <ul>
-        <li><h4>number</h4></li>
-        <li><h4>string</h4></li>
-        <li><h4>boolean</h4></li>
-        <li><h4>null</h4></li>
-        <li><h4>undefined</h4></li>
+        <li><h3>number</h3></li>
+        <li><h3>string</h3></li>
+        <li><h3>boolean</h3></li>
+        <li><h3>null</h3></li>
+        <li><h3>undefined</h3></li>
       </ul>
-      <h4>Object (reference) types:</h4>
+      <h3>Object (reference) types:</h3>
       <ul>
-        <li><h4>Object</h4></li>
-        <li><h4>Function</h4></li>
-        <li><h4>Array</h4></li>
-        <li><h4>Date</h4></li>
-        <li><h4>RegExp</h4></li>
-        <li><h4>*Wrappers for primitives: Boolean, Number, String</h4></li>
+        <li><h3>Object</h3></li>
+        <li><h3>Function</h3></li>
+        <li><h3>Array</h3></li>
+        <li><h3>Date</h3></li>
+        <li><h3>RegExp</h3></li>
+        <li><h3>*Wrappers for primitives: Boolean, Number, String</h3></li>
       </ul>
     </section>
 
@@ -143,7 +120,6 @@ show(typeof a); //-> what will the result's type be?
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 function f(){}
-
 var o = new f();
 show(o instanceof f);//-> true, because: Object.getPrototypeOf(o) === f.prototype
 
@@ -164,7 +140,7 @@ show(Object instanceof Function); //-> since Object is a (ctor) function
       <h2>1. JavaScript Overview - Primitive Values</h2>
       <h3>A data types that are not an objects and do not have any methods.</br></h3>
       <ul>
-        <li><h4>Immutable</h4></li>
+        <li><h3>Immutable</h3></li>
           <div>
             <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var a = 10;        
@@ -174,7 +150,7 @@ a = 11;
 show(b);
             </textarea>
         </div>        
-        <li><h4>Compared by value, they don’t have individual identities</h4></li>
+        <li><h3>Compared by value, they don’t have individual identities</h3></li>
           <div>
           <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var a = 10;        
@@ -182,7 +158,7 @@ var b = 10;
 show(a === b);
           </textarea>
         </div>              
-        <li><h4>Wrapper objects - with the exception of null and undefined, primitives values have object equivalents which wrap around them, so, they use the methods from the wrapper’s prototype</h4></li>
+        <li><h3>Wrapper objects</h3></li>
           <div>
             <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 show(typeof "abc");
@@ -197,10 +173,7 @@ show("abc" === new String("abc"));
 
     <section class="slide" id="textarea-code">
       <h2>1. JavaScript Overview - Objects</h2>
-      <h4>JavaScript objects can be thought of as simple collections of name-value pairs, similar to dictionaries.</br>
-        The "name" part is a JavaScript string, while the value can be any JavaScript value — including more objects.</br>
-        This enables building data structures of arbitrary complexity.
-      </h4>
+      <h3>JavaScript objects can be thought of as simple collections of name-value pairs, similar to dictionaries</h3>
       </br>
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
@@ -217,7 +190,7 @@ props.forEach(logArrayElements);
     <section class="slide" id="textarea-code">
       <h2>1. JavaScript Overview - Objects</h2>
       <ul>
-        <li><h4>Mutable by default</h4></li>
+        <li><h3>Mutable by default</h3></li>
           <div>
             <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var s1 = new String("abc");
@@ -226,7 +199,7 @@ s1 = new String("def");
 show(s1);
           </textarea>
         </div>               
-        <li><h4>Have unique identities and are compared by reference</h4></li>
+        <li><h3>Have unique identities and are compared by reference</h3></li>
           <div>
             <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var s1 = new String("abc");
@@ -236,7 +209,7 @@ s2 = new String("def");
 show(s1 === s2);
           </textarea>
         </div>               
-        <li><h4>Variables hold references to objects</h4></li>
+        <li><h3>Variables hold references to objects</h3></li>
           <div>
             <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var s1 = new String("abc");
@@ -252,14 +225,16 @@ show(s2);
     <section class="slide" id="textarea-code">
       <h2>1. JavaScript Overview - Inheritance</h2>
       <h3>JavaScript supports a prototype-based inheritance.</h3>
-      <h4>Inheritance is perfomed by creating new objects directly, based on existing ones. The existing object is assigned as the</br> prototype of the new object and then inherited behavior can be changed or new behavior can be added to the new object.</h4>
+      <h3>Inheritance is perfomed by creating new objects directly, based on existing ones, existing object is assigned
+       as the prototype of the new object and then inherited behavior can be changed or new behavior can be added to the
+        new object.</h3>
       </h3>
       </br>
       <ul>
-        <li><h4>The prototype of an object is a simple reference to another object which has its own prototype reference set to yet another object</h4></li>
-        <li><h4>All objects are descended from 'Object' and they inherit properties from Object.prototype, but they may be overridden</h4></li>
-        <li><h4>'null', by definition, has no prototype, and acts as the final link in this prototype chain</h4></li>
-        <li><h4>new objects are created by copying the structure of an existing prototype object</h4></li>
+        <li><h3>The prototype of an object is a simple reference to another object which has its own prototype reference set to yet another object</h3></li>
+        <li><h3>All objects are descended from 'Object' and they inherit properties from Object.prototype, but they may be overridden</h3></li>
+        <li><h3>'null', by definition, has no prototype, and acts as the final link in this prototype chain</h3></li>
+        <li><h3>New objects are created by copying the structure of an existing prototype object</h3></li>
       </ul>
       </br></br>
       <img src="./img/prototype-chain.png"><a href="http://blogorama.nerdworks.in/inheritanceinjavascript/" target="_blank">Inheritance in JavaScript</a></img>
@@ -328,25 +303,24 @@ bob.greet();
     <section class="slide" id="textarea-code">
       <h2>1. JavaScript Overview - Functions</h2>
       <h3>In JavaScript, functions are objects and are used to perform a task or calculates a value.</h3>
-      <h4>Functions have properties and methods that they inherit from the Function object. It is possible to add new properties and methods to functions.
-      </h4></br>
+      <h3>Functions have properties and methods that they inherit from the Function object. It is possible to add new properties and methods to functions.
+      </h3></br>
       <ul>
-        <li><h4>Functions are values that can be bound to names, passed as arguments, returned from other functions</h4></li>
-        <li><h4>Functions are applied to arguments</h4></li>
-        <li><h4>The arguments are passed by sharing, which is also called “pass by value”</h4></li>
-        <li><h4>Function bodies have zero or more expressions</h4></li>
-        <li><h4>Function application evaluates whatever is returned with the return keyword, or to 'undefined'</h4></li>
-        <li><h4>Function application creates a scope. Scopes are nested and free variable references are closed over</h4></li>
-        <li><h4>Variables can shadow variables in an enclosing scope</h4></li>
+        <li><h3>Functions are values that can be bound to names, passed as arguments, returned from other functions</h3></li>
+        <li><h3>Functions are applied to arguments</h3></li>
+        <li><h3>The arguments are passed by sharing, which is also called “pass by value”</h3></li>
+        <li><h3>Function bodies have zero or more expressions</h3></li>
+        <li><h3>Function application evaluates whatever is returned with the return keyword, or to 'undefined'</h3></li>
+        <li><h3>Function application creates a scope. Scopes are nested and free variable references are closed over</h3></li>
+        <li><h3>Variables can shadow variables in an enclosing scope</h3></li>
       </ul>
     </section>
 
     <section class="slide" id="textarea-code">
       <h2>1. JavaScript Overview - Functions</h2>
       <h3>Function declarations are hoisted — moved in their entirety to the beginning of the current scope</h3>
-      <h4>Creating functions:</h4>
       </br>
-      <h4>With name:</h4>
+      <h3>With name:</h3>
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 function add(a, b) {
@@ -356,7 +330,7 @@ var result = add(1, 3);
 show(result); 
         </textarea>
       </div>
-      <h4>Without the name, assigned to a variable</h4>
+      <h3>Without the name, assigned to a variable</h3>
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var add = function(a, b) {
@@ -366,7 +340,7 @@ var result = add(1, 3);
 show(result); 
         </textarea>
       </div>      
-      <h4>Without the name, used as anonymous function</h4>
+      <h3>Without the name, used as anonymous function</h3>
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var add = function(a, b) {
@@ -385,22 +359,22 @@ show(result());
       <h3>Function object (all functions inherit from it) has the following properties:</h3>
 
       <ul>
-        <li><h4>arguments: An Array/object containing the arguments passed to the function</h4></li>
+        <li><h3>arguments: An Array/object containing the arguments passed to the function</h3></li>
         <ul>
-          <li><h4>arguments.length: Stores the number of arguments in the array</h4></li>
-          <li><h4>arguments.callee: Pointer to the executing function (allows anonymous functions to recurse)</h4></li>
+          <li><h3>arguments.length: Stores the number of arguments in the array</h3></li>
+          <li><h3>arguments.callee: Pointer to the executing function (allows anonymous functions to recurse)</h3></li>
         </ul>
-        <li><h4>length: The number of arguments the function was expecting</h4></li>
-        <li><h4>constructor: function pointer to the constructor function</h4></li>
-        <li><h4>prototype: allows the creation of prototyes</h4></li>
+        <li><h3>length: The number of arguments the function was expecting</h3></li>
+        <li><h3>constructor: function pointer to the constructor function</h3></li>
+        <li><h3>prototype: allows the creation of prototyes</h3></li>
       </ul>
       
       <h3>Function object has the following methods:</h3>
       <ul>
-        <li><h4>apply: A method that lets you more easilly pass function arguments</h4></li>
-        <li><h4>call: Allows you to call a function within a different context</h4></li>
-        <li><h4>bind: creates a new function that, when called, has its 'this' set to the provided value, with a given sequence of arguments preceding any provided when the new function is called</h4></li>
-        <li><h4>toString: Returns the source of the function as a string</h4></li>
+        <li><h3>apply: A method that lets you more easilly pass function arguments</h3></li>
+        <li><h3>call: Allows you to call a function within a different context</h3></li>
+        <li><h3>bind: creates a new function that, when called, has its 'this' set to the provided value, with a given sequence of arguments preceding any provided when the new function is called</h3></li>
+        <li><h3>toString: Returns the source of the function as a string</h3></li>
       </ul>
     </section>
     
@@ -422,23 +396,23 @@ props.forEach(logArrayElements);
     <section class="slide" id="textarea-code">
       <h2>1. JavaScript Overview - Closures</h2>
       <h3>Closures are functions that refer to independent (free) variables.</h3> 
-      <h4>Function defined in the closure 'remembers' the environment in which it was created. A closure, unlike a  plain function pointer, allows a function to access those free variables even when invoked outside its immediate lexical scope.</h4> 
+      <h3>Function defined in the closure 'remembers' the environment in which it was created. A closure, unlike a  plain function pointer, allows a function to access those free variables even when invoked outside its immediate lexical scope.</h3> 
       <ul>
-        <li><h4>Simply accessing variables outside of your immediate lexical scope creates a closure</h4></li>
-        <li><h4>Inner function get full access to all the variables and functions defined in the outer function, but not the other way around</h4></li>
-        <li><h4>Closures enable data hiding and encapsulation</h4></li>
+        <li><h3>Simply accessing variables outside of your immediate lexical scope creates a closure</h3></li>
+        <li><h3>Inner function get full access to all the values defined in the outer function, not the other way around</h3></li>
       </ul>
-      </br>
+    </section>
+
+    <section class="slide" id="textarea-code">
+      <h2>1. JavaScript Overview - Closures</h2>
+      <h3>Closures enable data hiding and encapsulation</h3>
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 var makeCounter = function() {
   var counter = 0;
-  function changeBy(val) {
-    counter += val;
-  }
   return {
     increment: function() {
-      changeBy(1);
+      counter += 1;
     },
     value: function() {
       return counter;
@@ -458,57 +432,27 @@ show(counter2.value());
 
     <section class="slide">
       <h2>1. JavaScript Overview - Questions</h2>
-      <div class="zerogrid">
-        <div class="row">
-          <div class="col-1-3">
-            <div class="wrap-col">
-              </br></br></br>
-              <ul>
-                <li><h3>Type System</h3></li>
-                <li><h3>Primitive Values</h3></li>
-                <li><h3>Objects</h3></li>
-                <li><h3>Inheritance</h3></li>
-                <li><h3>Functions</h3></li>
-                <li><h3>Closures</h3></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-2-3">
-            <div class="wrap-col">
-            </br></br></br>
-              <img src="./img/question-mark.jpg" alt=""/>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" id="codemirror-intro">
-      <h1>2. Functional Programming Overview</h1>
+      </br></br></br>
+      <ul>
+        <li><h3>Type System</h3></li>
+        <li><h3>Primitive Values</h3></li>
+        <li><h3>Objects</h3></li>
+        <li><h3>Inheritance</h3></li>
+        <li><h3>Functions</h3></li>
+        <li><h3>Closures</h3></li>
+      </ul>
+      <img src="./img/question-mark.jpg" alt=""/>
     </section>
 
     <section class="slide" id="textarea-code">
       <h2>2. Functional Programming Overview</h2>
       </br></br>
-      <div class="zerogrid">
-        <div class="row">
-        <div class="col-1-3">
-          <div class="wrap-col">
-            <ul>
-              <li><h3>What is functional programming?</h3></li>
-              <li><h3>Why Functional?</h3></li>
-              <li><h3>A motivating example(?)</h3></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-2-3">
-          <div class="wrap-col">
-            </br></br></br>
-            <img src="./img/fn-logo.jpg" alt="">
-          </div>
-        </div>
-        </div>
-      </div>    
+      <ul>
+        <li><h3>What is functional programming?</h3></li>
+        <li><h3>Why Functional?</h3></li>
+        <li><h3>A motivating example(?)</h3></li>
+      </ul>
+      <img src="./img/fn-logo.jpg" alt="">
     </section>
 
     <section class="slide" id="textarea-code">
@@ -516,35 +460,31 @@ show(counter2.value());
       <ul>
         <li>
           <h3>First Class Functions:</h3>
-          <h4>stored in variables, passed as arguments to functions, created within functions and returned from functions</h4>
+          <h3>stored in variables, passed as arguments to functions, created within functions and returned from functions</h3>
         </li>
         <li>
           <h3>Higher Order Functions:</h3>
-          <h4>a function that can accept functions as arguments, and/or can return a function</h4>
-        </li>
-        <li>
-          <h3>Anonymous Functions:</h3>
-          <h4>Function that was declared without any named identifier to refer to it. Used is as arguments to other functions, as a closure, etc</h4>
+          <h3>a function that can accept functions as arguments, and/or can return a function</h3>
         </li>
         <li>
           <h3>No Side Effects:</h3>
-          <h4>Function that does something other than returning the result is said to have side effects</h4>
+          <h3>Function that does something other than returning the result is said to have side effects</h3>
         </li>
         <li>
           <h3>Referential Transparency:</h3>
-          <h4>For a given set of arguments, the same code should always output the same value, only by changing arguments can a output value be different</h4>
+          <h3>For a given set of arguments, the same code should always output the same value, only by changing arguments can a output value be different</h3>
         </li>
         <li>
           <h3>Immutability:</h3>
-          <h4>Inability for variables to change their values once created. In other words, all things created stay constant</h4>
+          <h3>Inability for variables to change their values once created. In other words, all things created stay constant</h3>
         </li>
         <li>
           <h3>Currying / Partial Application:</h3>
-          <h4>Ability of a function to return a new function until it receives all it's arguments. Calling a curried function with only some of its arguments is called partial application</h4>
+          <h3>Ability of a function to return a new function until it receives all it's arguments. Calling a curried function with only some of its arguments is called partial application</h3>
         </li>
         <li>
           <h3>Tail Call Optimization:</h3>
-          <h4>Ability to avoid allocating a new stack frame for a function call. The most common use is tail-recursion, where a recursive function uses constant stack space.</h4>
+          <h3>Ability to avoid allocating a new stack frame for a function call. The most common use is tail-recursion, where a recursive function uses constant stack space.</h3>
         </li>
       </ul>
     </section>
@@ -557,10 +497,10 @@ show(counter2.value());
         <div class="col-1-4">
           <div class="wrap-col">
              <ul>
-                <li><h4>Write less code</h4></li>
-                <li><h4>Fewer errors</h4></li>
-                <li><h4>Easy concurrency</h4></li>
-                <li><h4>Testability</h4></li>
+                <li><h3>Write less code</h3></li>
+                <li><h3>Fewer errors</h3></li>
+                <li><h3>Easy concurrency</h3></li>
+                <li><h3>Testability</h3></li>
               </ul>
           </div>
         </div>
@@ -600,7 +540,7 @@ show(firstTwoChars(words));
         </textarea>
       </div>
       </br></br>
-      <h4>*Hat tip to Brian Lonsdorf, aka <a href="https://twitter.com/drboolean" target="_blank">@drboolean</a>. Watch his videos, great fun and motivating stuff!</h4>
+      <h3>*Hat tip to Brian Lonsdorf, aka <a href="https://twitter.com/drboolean" target="_blank">@drboolean</a>. Watch his videos, great fun and motivating stuff!</h3>
       <a href="http://youtu.be/m3svKOdZijA" target="_blank">Hey Underscore, You're Doing It Wrong!</a></br>
       <a href="http://youtu.be/AvgwKjTPMmM" target="_blank">Functional programming patterns for the non-mathematician!</a>
     </section>
@@ -638,122 +578,89 @@ show(map(first(2), words));
 
     <section class="slide">
       <h2>2. Functional Programming Overview - Questions</h2>
-      <div class="zerogrid">
-        <div class="row">
-          <div class="col-1-3">
-            <div class="wrap-col">
-              </br></br></br>
-              <ul>
-              <li><h3>What is functional programming?</h3></li>
-              <li><h3>Why Functional?</h3></li>
-              <li><h3>A motivating example(?)</h3></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-2-3">
-            <div class="wrap-col">
-            </br></br></br>
-               <img src="./img/question-mark.jpg" alt=""/>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="slide" id="codemirror-intro">
-      <h1>3. Functional Programming Techniques</h1>
+      <ul>
+        <li><h3>What is functional programming?</h3></li>
+        <li><h3>Why Functional?</h3></li>
+        <li><h3>A motivating example(?)</h3></li>
+      </ul>
+      <img src="./img/question-mark.jpg" alt=""/>
     </section>
 
     <section class="slide" id="textarea-code">
       <h2>3. Functional Programming Techniques</h2>
-      </br></br>
-      <div class="zerogrid">
-        <div class="row">
-        <div class="col-1-3">
-          <div class="wrap-col">
-            <ul>
-              <li><h3>Functional JavaScript</h3></li>
-              <li><h3>Pure Function</h3></li>
-              <li><h3>Higher Order Functions</h3></li>
-              <li><h3>Composition</h3></li>
-              <li><h3>Combinators</h3></li>
-              <li><h3>Currying/Partial Application</h3></li>
-              <li><h3>Filter</h3></li>
-              <li><h3>Map</h3></li>
-              <li><h3>Reduce</h3></li>
-              <li><h3>Try it out yourslef...</h3></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-2-3">
-          <div class="wrap-col">
-          </br></br></br>
-              <img src="./img/js-logo.jpg" alt="">
-          </div>
-        </div>
-        <div class="col-3-3">
-          <div class="wrap-col">
-            </br></br></br>
-            <img src="./img/fn-logo.jpg" alt="">
-          </div>
-        </div>
-        </div>
-      </div>    
+      <ul>
+        <li><h3>Functional JavaScript</h3></li>
+        <li><h3>Pure Function, Higher Order Functions</h3></li>
+        <li><h3>Composition, Combinators</h3></li>
+        <li><h3>Currying/Partial Application</h3></li>
+        <li><h3>Filter, Map, Reduce</h3></li>
+        <li><h3>Try it out yourslef...</h3></li>
+      </ul>
+      <img src="./img/fn-logo.jpg" alt="">
     </section>
 
     <section class="slide" id="textarea-spec">
       <h2>3. Functional Programming Techniques - Functional JavaScript</h2>
       <h3>JavaScript allows a variety of different programming paradigms: OO, functional, procedural</h3>
-      <h4>Although not a pure functional programming language, it allows one to program in a functional way.</h4>
+      <h3>Although not a pure functional programming language, it allows one to program in a functional way.</h3>
       </br>
-      <h4>Supports:</h4>
+      <h3>Supports:</h3>
       <ul>
-        <li><h4>First Class Functions</h4></li>
-        <li><h4>Higher Order Functions</h4></li>
-        <li><h4>Anonymous functions</h4></li>
-        <li><h4>Closuress</h4></li>
+        <li><h3>First Class Functions</h3></li>
+        <li><h3>Higher Order Functions</h3></li>
+        <li><h3>Anonymous functions</h3></li>
+        <li><h3>Closuress</h3></li>
       </ul>
-      <h4>Does not support directly, but possible with some discipline :)</h4>
+      <img src="./img/js-logo.jpg" alt="">
+    </section>
+
+    <section class="slide" id="textarea-spec">
+      <h2>3. Functional Programming Techniques - Functional JavaScript</h2>
+      <h3>JavaScript allows a variety of different programming paradigms: OO, functional, procedural</h3>
+      <h3>Although not a pure functional programming language, it allows one to program in a functional way.</h3>
+      </br>
+      <h3>Does not support directly, but possible with some discipline :)</h3>
       <ul>
-        <li><h4>Pure functions</h4></li>
-        <li><h4>Immutability</h4></li>
-        <li><h4>No Side Effects</h4></li>
+        <li><h3>Pure functions</h3></li>
+        <li><h3>Immutability</h3></li>
+        <li><h3>No Side Effects</h3></li>
       </ul>
-      <h4>Does not support directly, but possible with use of libraries or with ES6:</h4>
+      <img src="./img/js-logo.jpg" alt="">
+    </section>
+
+    <section class="slide" id="textarea-spec">
+      <h2>3. Functional Programming Techniques - Functional JavaScript</h2>
+      <h3>JavaScript allows a variety of different programming paradigms: OO, functional, procedural</h3>
+      <h3>Although not a pure functional programming language, it allows one to program in a functional way.</h3>
+      </br>
+      <h3>Does not support directly, but possible with use of libraries or with ES6:</h3>
       <ul>
-        <li><h4>Currying/Partial Application</h4></li> 
-        <li><h4>Tail call optimization</h4></li>
-        <li><h4>Pattern matching</h4></li>
-        <li><h4>Lazy Evaluation</h4></li>
+        <li><h3>Currying/Partial Application</h3></li> 
+        <li><h3>Tail call optimization</h3></li>
+        <li><h3>Pattern matching</h3></li>
+        <li><h3>Lazy Evaluation</h3></li>
       </ul>
+      <img src="./img/js-logo.jpg" alt="">
     </section>
 
     <section class="slide" id="textarea-code">
       <h2>3. Functional Programming Techniques - Pure function</h2>
       <h3>A function is considered pure if the result depends only on the arguments, and it has no side effects</h3>
-      <h4>The only result of invoking a pure function is the return value.</h4>
-      <div class="zerogrid">
-        <div class="row">
-        <div class="col-1-3">
-          <div class="wrap-col">
-            <ul>
-              <li><h4>Same input, same ouput</h4></li>
-              <li><h4>No side effects</h4></li>
-            </ul>
-            <ul>
-              <li><h4>Can be cached</h4></li>
-              <li><h4>Easy to test</h4></li>
-              <li><h4>Allows code to run in parallel</h4></li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-2-3">
-          <div class="wrap-col">
-            <img src="./img/Function-as-a-box.jpg" />
-          </div>
-        </div>
-        </div>
-      </div>  
+      <h3>The only result of invoking a pure function is the return value.</h3>
+      <ul>
+        <li><h3>Same input, same ouput</h3></li>
+        <li><h3>No side effects</h3></li>
+        <li><h3>Can be cached</h3></li>
+        <li><h3>Easy to test</h3></li>
+        <li><h3>Allows code to run in parallel</h3></li>
+      </ul>
+      <img src="./img/Function-as-a-box.jpg" />
+    </section>
+
+    <section class="slide" id="textarea-code">
+      <h2>3. Functional Programming Techniques - Pure function</h2>
+      <h3>A function is considered pure if the result depends only on the arguments, and it has no side effects</h3>
+      <h3>The only result of invoking a pure function is the return value.</h3>
       </br>
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
@@ -770,9 +677,9 @@ function impure(b) {return a + b};
     <section class="slide" id="textarea-code">
       <h2>3. Functional Programming Techniques - Higher Order Functions</h2>
       <h3>Functions that work with functions, take them as arguments, and/or return them as result.</h3>
-      <h4>Used in callbacks, factories, ... Basic ingridient for function composition.</h4>
+      <h3>Used in callbacks, factories, ... Basic ingridient for function composition.</h3>
       </br>
-      <h4>Using functions as arguments:</h4>
+      <h3>Using functions as arguments:</h3>
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 function sum(array){
@@ -781,7 +688,7 @@ function sum(array){
 show(sum([1, 2, 3, 4, 5]));
         </textarea>
       </div>
-      <h4>Using functions as return value:</h4>
+      <h3>Using functions as return value:</h3>
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 function wrap(tag) {
@@ -830,25 +737,25 @@ show(toUpper2("abc   def ghi"));
     <section class="slide" id="textarea-code">
       <h2>3. Functional Programming Techniques - Combinators</h2>
       <h3>Ability to use functions as building blocks to make new functions</h3>
-      <h4>Function composition is simply one of many combinators.</h4>
-      <h4>Tacit programming (point-free programming) is a programming paradigm in which a function definition does not include information regarding its arguments, using combinators and composition in the function declaration instead of arguments</h4>
+      <h3>Function composition is simply one of many combinators.</h3>
+      <h3>Tacit programming (point-free programming) is a programming paradigm in which a function definition does not include information regarding its arguments, using combinators and composition in the function declaration instead of arguments</h3>
       </br>
-      <h4>Some Examples*:</a></h4>
+      <h3>Some Examples*:</a></h3>
       <ul>
-        <li><h4>splat</li></h4>
-        <li><h4>get</li></h4>
-        <li><h4>pluck</li></h4>
+        <li><h3>splat</li></h3>
+        <li><h3>get</li></h3>
+        <li><h3>pluck</li></h3>
       </ul>
       <br><br><br><br>
-      <h4>*Taken from Reginald Braithwaite's, aka <a href="http://raganwald.com/" target="_blank">@raganwald</a>, article:
-      <a target="_blank" href="https://github.com/raganwald-deprecated/homoiconic/blob/master/2012/12/combinators_1.md">Combinator Recipes for Working With Objects in JavaScript</a></h4>
-      <h4>Be sure to check out his projects and books!</h4>
+      <h3>*Taken from Reginald Braithwaite's, aka <a href="http://raganwald.com/" target="_blank">@raganwald</a>, article:
+      <a target="_blank" href="https://github.com/raganwald-deprecated/homoiconic/blob/master/2012/12/combinators_1.md">Combinator Recipes for Working With Objects in JavaScript</a></h3>
+      <h3>Be sure to check out his projects and books!</h3>
     </section>
 
     <section class="slide" id="textarea-code">
       <h2>3. Functional Programming Techniques - Combinators</h2>
       <h3>'splat' combinator:</h3>
-      <h4>Function that wraps around 'map' and turns any other function into a mapping capable function</h4> 
+      <h3>Function that wraps around 'map' and turns any other function into a mapping capable function</h3> 
       </br>
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
@@ -877,7 +784,7 @@ show(squareMap([1, 2, 3, 4, 5]));
     <section class="slide" id="textarea-code">
       <h2>3. Functional Programming Techniques - Combinators</h2>
       <h3>'get' combinator:</h3>
-      <h4>Takes the name of a property and returns a function that gets that property from an object</h4>
+      <h3>Takes the name of a property and returns a function that gets that property from an object</h3>
       </br>
       <script type="codemirror" data-selector="#code-get">
         function splat(fn) {
@@ -893,15 +800,6 @@ show(squareMap([1, 2, 3, 4, 5]));
 function get(attr) {
     return function (object) { return object[attr]; }
 }
-
-//-> example usage:
-var inventory = {
-  apples: 0,
-  oranges: 144,
-  eggs: 36
-};
-
-show(get('oranges')(inventory)); 
 
 //-> together with 'splat':
 var inventories = [
@@ -921,8 +819,7 @@ show(splat(function (inventory) { return inventory.oranges; }) (inventories));
     <section class="slide" id="textarea-code">
       <h2>3. Functional Programming Techniques - Combinators</h2>
       <h3>'pluck' combinator:</h3>
-      <h4>Formalizes combining 'get' and 'splat'</h4>>
-      <h4></h4>
+      <h3>Formalizes combining 'get' and 'splat'</h3>
       </br>
       <script type="codemirror" data-selector="#code-pluck">
         function splat(fn) {
@@ -964,15 +861,15 @@ show(pluck('eggs')(inventories));
       <h2>3. Functional Programming Techniques - Currying/Partial Application*</h2>
       <h3>Currying produces a function that will return a new function until it receives all it's arguments</h3>
       <br>
-      <h4>Currying Enables:</h4>
+      <h3>Currying Enables:</h3>
       <ul>
-        <li><h4>Making generic functions</li></h4>
-        <li><h4>Building new functions by applying arguments</li></h4>
-        <li><h4>Better granularity of functions</li></h4>
-        <li><h4>More powerfull function composition</li></h4> 
+        <li><h3>Making generic functions</li></h3>
+        <li><h3>Building new functions by applying arguments</li></h3>
+        <li><h3>Better granularity of functions</li></h3>
+        <li><h3>More powerfull function composition</li></h3> 
       </ul>
       <br><br>
-      <h4>*Curried functions enables Partial Application</h4>
+      <h3>*Curried functions enables Partial Application</h3>
     </section>
 
     <section class="slide" id="textarea-code">
@@ -1047,60 +944,43 @@ show(sum([1, 2, 3, 4, 5]));
     <section class="slide">
       <h2>3. Functional Programming Techniques - Try it out yourslef...</h2>
       <img src="./img/functional-js-workshop.png" alt="">
-      <a href="https://github.com/timoxley/functional-javascript-workshop/" target="_blank"><h4>@timoxley: functional-javascript-workshop</h4></a>
+      <a href="https://github.com/timoxley/functional-javascript-workshop/" target="_blank"><h3>@timoxley: functional-javascript-workshop</h3></a>
     </section>
 
     <section class="slide">
       <h2>3. Functional Programming Techniques - Questions</h2>
-      <div class="zerogrid">
-        <div class="row">
-          <div class="col-1-3">
-            <div class="wrap-col">
-              </br></br></br>
-              <ul>
-              <li><h3>JavaScript as functional a proggraming language</h3></li>
-              <li><h3>Pure Function</h3></li>
-              <li><h3>Higher Order Functions</h3></li>
-              <li><h3>Composition</h3></li>
-              <li><h3>Combinators</h3></li>
-              <li><h3>Currying/Partial Application</h3></li>
-              <li><h3>Filter</h3></li>
-              <li><h3>Map</h3></li>
-              <li><h3>Reduce</h3></li>
-              <li><h3>Try it out yourslef...</h3></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-2-3">
-            <div class="wrap-col">
-            </br></br></br>
-               <img src="./img/question-mark.jpg" alt=""/>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ul>
+      <li><h3>JavaScript as functional a proggraming language</h3></li>
+      <li><h3>Pure Function</h3></li>
+      <li><h3>Higher Order Functions</h3></li>
+      <li><h3>Composition, Combinators</h3></li>
+      <li><h3>Currying/Partial Application</h3></li>
+      <li><h3>Filter, Map, Reduce</h3></li>
+      <li><h3>Try it out yourslef...</h3></li>
+      </ul>
+      <img src="./img/question-mark.jpg" alt=""/>
     </section>
 
     <section class="slide">
       <h2>Resources</h2>
       <br>
-      <h4>This presentation: <a href="https://github.com/srdjan/workshop-functional-js">Functional Javascript/</a></h4>
-      <h4>Original Deck/CodeMirror plugin by Irene Ros: <a href="https://github.com/iros/deck.js-codemirror">deck.js-codemirror</a></h4>
+      <h3>This presentation: <a href="https://github.com/srdjan/workshop-functional-js">Functional Javascript/</a></h3>
+      <h3>Original Deck/CodeMirror plugin by Irene Ros: <a href="https://github.com/iros/deck.js-codemirror">deck.js-codemirror</a></h3>
       <br>
-      <h4>Javascript Functional (and not so functional*) programming libraries:</h4>
+      <h3>Javascript Functional (and not so functional*) programming libraries:</h3>
       <ul>
-        <li><h4>allong.es: <a href="http://allong.es/" target="_blank">http://allong.es/</a></h4></li>
-        <li><h4>Ramda: <a href="https://github.com/CrossEye/ramda" target="_blank">https://github.com/CrossEye/ramda</a></h4></li>
-        <li><h4>LambdaJs: <a href="https://github.com/loop-recur/lambdajs/" target="_blank">https://github.com/loop-recur/lambdajs/</a></h4></li>
-        <li><h4>Falktale: <a href="http://folktale.github.io/" target="_blank">http://folktale.github.io/</a></h4></li>
-        <li><h4>*Underscore: <a href="http://underscorejs.org/" target="_blank">http://underscorejs.org/</a></h4></li>
-        <li><h4>*Lo-Dash: <a href="http://lodash.com/" target="_blank">http://lodash.com/</a></h4></li>
+        <li><h3>allong.es: <a href="http://allong.es/" target="_blank">http://allong.es/</a></h3></li>
+        <li><h3>Ramda: <a href="https://github.com/CrossEye/ramda" target="_blank">https://github.com/CrossEye/ramda</a></h3></li>
+        <li><h3>LambdaJs: <a href="https://github.com/loop-recur/lambdajs/" target="_blank">https://github.com/loop-recur/lambdajs/</a></h3></li>
+        <li><h3>Falktale: <a href="http://folktale.github.io/" target="_blank">http://folktale.github.io/</a></h3></li>
+        <li><h3>*Underscore: <a href="http://underscorejs.org/" target="_blank">http://underscorejs.org/</a></h3></li>
+        <li><h3>*Lo-Dash: <a href="http://lodash.com/" target="_blank">http://lodash.com/</a></h3></li>
       </ul>
-      <h4>Books on Functional JavaScript</h4>
+      <h3>Books on Functional JavaScript</h3>
       <ul>
-        <li><h4><a href="http://funjs.herokuapp.com/" target="_blank">Functional JavaScript</a>, Michael Fogus</h4></li>
-        <li><h4><a href="http://eloquentjavascript.net/2nd_edition" target="_blank">Eloquent JavaScript</a>, Marijn Haverbeke</h4></li>
-        <li><h4><a href="https://leanpub.com/javascript-allonge/" target="_blank">JavaScript Allongé</a>, Reginald Braithwaite</h4></li>
+        <li><h3><a href="http://funjs.herokuapp.com/" target="_blank">Functional JavaScript</a>, Michael Fogus</h3></li>
+        <li><h3><a href="http://eloquentjavascript.net/2nd_edition" target="_blank">Eloquent JavaScript</a>, Marijn Haverbeke</h3></li>
+        <li><h3><a href="https://leanpub.com/javascript-allonge/" target="_blank">JavaScript Allongé</a>, Reginald Braithwaite</h3></li>
       </ul>
     </section>
 
