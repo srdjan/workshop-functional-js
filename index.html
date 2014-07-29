@@ -885,6 +885,7 @@ show(pluck('eggs')(inventories));
         }
         var show = console.log;
       </script>
+      <div>
         <textarea id="filter" class="code" mode="javascript" style="display: none;" runnable="true">
 var isThreeLetters = function(word) {
   return word.length === 3;
@@ -902,25 +903,31 @@ show(result);
       <h2>3. Functional Programming Techniques - Example: Map</h2>
       <h3>Map takes a function as an argument, and applies it to each of the elements of the array, then returns the results in a new array</h3>
       <br>
+       <script type="codemirror" data-selector="#map">
+        function splat(fn) {
+          return function (list) {
+            return Array.prototype.map.call(list, fn)
+          }
+        }
+        var sqr = function(n) { 
+          return n*n;
+        };
+        var show = console.log;
+      </script>
       <div>
-        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
-show([1, 2, 3, 4, 5].map(function (n) { 
-  return n*n 
-}));
+        <textarea id="map" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+show([1, 2, 3, 4, 5].map(sqr));
         </textarea>
       </div>    
       <div>
-        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" globals="_" runnable="true">
-show(_.map([1, 2, 3, 4, 5], function (n) { 
-  return n*n 
-}));
+        <textarea id="map" name="code" class="code" mode="javascript" style="display: none;" globals="_" runnable="true">
+show(_.map([1, 2, 3, 4, 5], sqr));
         </textarea>
       </div>    
       <div>
-        <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" globals="map" runnable="true">
-show(map(function (n) { 
-  return n*n; 
-}, [1, 2, 3, 4, 5]));
+        <textarea id="map" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
+var sqrMap = splat(sqr);
+show(sqrMap([1, 2, 3, 4, 5]));
         </textarea>
       </div>    
     </section>
@@ -932,7 +939,7 @@ show(map(function (n) {
       <div>
         <textarea id="code-log" name="code" class="code" mode="javascript" style="display: none;" runnable="true">
 function sum(array){
-    return array.reduce(function(a, b){ return a + b; }, 0);
+    return array.reduce(function(a, b) { return a + b; }, 0);
 }
 show(sum([1, 2, 3, 4, 5]));
         </textarea>
