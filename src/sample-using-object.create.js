@@ -1,34 +1,15 @@
-var Person = {
-    name: undefined,
-    canTalk: true,
-    greet: function() {
-        if (this.canTalk) {
-            console.log("Hi, I'm " + this.name);
-        }
-    }
+var log = console.log;
+
+function Person() {
+    this.name = undefined;
+    this.canTalk = true;
 };
 
-var Employee = Object.create(Person);
-Employee.title = undefined;
-Employee.greet = function() {
-    console.log("Hi, I'm " + this.name + ", the " + this.title);
-};
+Person.prototype.greet = function() {
+  if (this.canTalk) {
+    console.log("Hi, I'm " + this.name);
+  }
+}
 
-var bob = Object.create(Employee, {
-    name: {
-        value: "Bob"
-    },
-    title: {
-        value: "Builder"
-    }
-});
+var bob = new Person();
 bob.greet();
-
-function Mime(name) {
-    this.name = name;
-    this.canTalk = false;
-};
-Mime.prototype = Object.create(Person);
-
-var mime = new Mime('Mime');
-mime.greet();
