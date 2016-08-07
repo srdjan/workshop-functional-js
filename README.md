@@ -1,2 +1,5 @@
-workshop-functional-js
+Workshop-functional-js
 ======================
+
+Part 1
+----------------------
