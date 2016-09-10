@@ -1,5 +1,5 @@
 Workshop-functional-js
 ======================
 
-Part 1
+Part 1, to be continued...
 ----------------------
